@@ -10,12 +10,12 @@ import (
 )
 
 type PsicologiaDiagnostico struct {
-	IdDiagnosticoPsicologia int                   `orm:"column(id_diagnostico_psicologia);pk;auto"`
-	IdHojaHistoria          *MedicinaHojaHistoria `orm:"column(id_hoja_historia);rel(fk);null"`
-	Hipotesis               string                `orm:"column(hipotesis);null"`
-	Acuerdo                 string                `orm:"column(acuerdo);null"`
-	Observaciones           string                `orm:"column(observaciones);null"`
-	Evolucion               string                `orm:"column(evolucion);null"`
+	IdDiagnosticoPsicologia int    `orm:"column(id_diagnostico_psicologia);pk;auto"`
+	IdHojaHistoria          *int   `orm:"column(id_hoja_historia);rel(fk);null"`
+	Hipotesis               string `orm:"column(hipotesis);null"`
+	Acuerdo                 string `orm:"column(acuerdo);null"`
+	Observaciones           string `orm:"column(observaciones);null"`
+	Evolucion               string `orm:"column(evolucion);null"`
 }
 
 func (p *PsicologiaDiagnostico) TableName() string {

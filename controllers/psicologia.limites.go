@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ElLuchoMan/SaludApi/models"
+	"Psicologia/models"
 
 	"github.com/astaxie/beego"
 )

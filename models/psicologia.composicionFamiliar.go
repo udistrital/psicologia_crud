@@ -10,9 +10,9 @@ import (
 )
 
 type PsicologiaComposicionFamiliar struct {
-	IdPsicologiaComposicionFamiliar int                   `orm:"column(id_composicion_familiar);pk;auto"`
-	IdHojaHistoria                  *MedicinaHojaHistoria `orm:"column(id_hoja_historia);rel(fk);null"`
-	Observaciones                   string                `orm:"column(observaciones);null"`
+	IdPsicologiaComposicionFamiliar int    `orm:"column(id_composicion_familiar);pk;auto"`
+	IdHojaHistoria                  *int   `orm:"column(id_hoja_historia);rel(fk);null"`
+	Observaciones                   string `orm:"column(observaciones);null"`
 }
 
 func (t *PsicologiaComposicionFamiliar) TableName() string {

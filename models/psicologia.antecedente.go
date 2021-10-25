@@ -10,11 +10,11 @@ import (
 )
 
 type PsicologiaAntecedente struct {
-	IdPsicologiaAntecedente      int                        `orm:"column(id_antecedente);pk"`
-	Actual_somatico              string                     `orm:"column(actual_somatico);null"`
-	Pasado_somatico              string                     `orm:"column(pasado_somatico);null"`
-	IdTipoAntecedentePsicologico *PsicologiaTipoAntecedente `orm:"column(id_tipo_antecedente_psicologico);rel(fk);null"`
-	IdHistoriaClinica            *MedicinaHistoriaClinica   `orm:"column(id_historia_clinica);rel(fk);null"`
+	IdPsicologiaAntecedente      int    `orm:"column(id_antecedente);pk"`
+	Actual_somatico              string `orm:"column(actual_somatico);null"`
+	Pasado_somatico              string `orm:"column(pasado_somatico);null"`
+	IdTipoAntecedentePsicologico *int   `orm:"column(id_tipo_antecedente_psicologico);rel(fk);null"`
+	IdHistoriaClinica            *int   `orm:"column(id_historia_clinica);rel(fk);null"`
 }
 
 func (t *PsicologiaAntecedente) TableName() string {

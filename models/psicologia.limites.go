@@ -10,11 +10,11 @@ import (
 )
 
 type PsicologiaLimites struct {
-	IdLimite       int                   `orm:"column(id_limite);pk;auto"`
-	Difusos        string                `orm:"column(difusos);null"`
-	Claros         string                `orm:"column(claros);null"`
-	Rigidos        string                `orm:"column(rigidos);null"`
-	IdHojaHistoria *MedicinaHojaHistoria `orm:"column(id_hoja_historia);rel(fk);null"`
+	IdLimite       int    `orm:"column(id_limite);pk;auto"`
+	Difusos        string `orm:"column(difusos);null"`
+	Claros         string `orm:"column(claros);null"`
+	Rigidos        string `orm:"column(rigidos);null"`
+	IdHojaHistoria *int   `orm:"column(id_hoja_historia);rel(fk);null"`
 }
 
 func (p *PsicologiaLimites) TableName() string {

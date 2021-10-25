@@ -10,10 +10,10 @@ import (
 )
 
 type PsicologiaComportamientoConsulta struct {
-	IdComportamientoConsulta int                   `orm:"column(id_comportamiento_consulta);pk;auto"`
-	IdHojaHistoria           *MedicinaHojaHistoria `orm:"column(id_hoja_historia);rel(fk);null"`
-	Problematica             string                `orm:"column(problematica);null"`
-	Afrontamiento            string                `orm:"column(afrontamiento);null"`
+	IdComportamientoConsulta int    `orm:"column(id_comportamiento_consulta);pk;auto"`
+	IdHojaHistoria           *int   `orm:"column(id_hoja_historia);rel(fk);null"`
+	Problematica             string `orm:"column(problematica);null"`
+	Afrontamiento            string `orm:"column(afrontamiento);null"`
 }
 
 func (t *PsicologiaComportamientoConsulta) TableName() string {

@@ -10,19 +10,19 @@ import (
 )
 
 type PsicologiaValoracionInterpersonal struct {
-	IdValoracionInterpersonal int                   `orm:"column(id_valoracion_interpersonal);pk;auto"`
-	IdHojaHistoria            *MedicinaHojaHistoria `orm:"column(id_hoja_historia);rel(fk);null"`
-	Autoridad                 string                `orm:"column(autoridad);null"`
-	Pares                     string                `orm:"column(pares);null"`
-	Pareja                    string                `orm:"column(pareja);null"`
-	Relaciones                bool                  `orm:"column(relaciones);null"`
-	Satisfaccion              string                `orm:"column(satisfaccion);null"`
-	Proteccion                string                `orm:"column(proteccion);null"`
-	Orientacion               string                `orm:"column(orientacion);null"`
-	Judiciales                string                `orm:"column(judiciales);null"`
-	Economicos                string                `orm:"column(economicos);null"`
-	Drogas                    string                `orm:"column(drogas);null"`
-	Motivo                    string                `orm:"column(motivo);null"`
+	IdValoracionInterpersonal int    `orm:"column(id_valoracion_interpersonal);pk;auto"`
+	IdHojaHistoria            *int   `orm:"column(id_hoja_historia);rel(fk);null"`
+	Autoridad                 string `orm:"column(autoridad);null"`
+	Pares                     string `orm:"column(pares);null"`
+	Pareja                    string `orm:"column(pareja);null"`
+	Relaciones                bool   `orm:"column(relaciones);null"`
+	Satisfaccion              string `orm:"column(satisfaccion);null"`
+	Proteccion                string `orm:"column(proteccion);null"`
+	Orientacion               string `orm:"column(orientacion);null"`
+	Judiciales                string `orm:"column(judiciales);null"`
+	Economicos                string `orm:"column(economicos);null"`
+	Drogas                    string `orm:"column(drogas);null"`
+	Motivo                    string `orm:"column(motivo);null"`
 }
 
 func (t *PsicologiaValoracionInterpersonal) TableName() string {
