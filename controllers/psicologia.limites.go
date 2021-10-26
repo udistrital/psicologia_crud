@@ -11,12 +11,12 @@ import (
 	"github.com/astaxie/beego"
 )
 
-type PsicologiaLimitesController struct {
+type LimitesController struct {
 	beego.Controller
 }
 
 // URLMapping ...
-func (c *PsicologiaLimitesController) URLMapping() {
+func (c *LimitesController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
@@ -26,15 +26,15 @@ func (c *PsicologiaLimitesController) URLMapping() {
 
 // Post ...
 // @Title Post
-// @Description agregar un registro en la tabla PsicologiaLimites
-// @Param	body		body 	models.PsicologiaLimites	true		"Cuerpo para el contenido de PsicologiaLimites"
-// @Success 201 {int} models.PsicologiaLimites
+// @Description agregar un registro en la tabla Limites
+// @Param	body		body 	models.Limites	true		"Cuerpo para el contenido de Limites"
+// @Success 201 {int} models.Limites
 // @Failure 403 Cuerpo Vacío
 // @router / [post]
-func (c *PsicologiaLimitesController) Post() {
-	var v models.PsicologiaLimites
+func (c *LimitesController) Post() {
+	var v models.Limites
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddPsicologiaLimites(&v); err == nil {
+		if _, err := models.AddLimites(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
@@ -48,15 +48,15 @@ func (c *PsicologiaLimitesController) Post() {
 
 // GetOne ...
 // @Title Get One
-// @Description consultar un registro de la tabla PsicologiaLimites por su id
+// @Description consultar un registro de la tabla Limites por su id
 // @Param	id		path 	string	true		"Id a consultar"
-// @Success 200 {object} models.PsicologiaLimites
+// @Success 200 {object} models.Limites
 // @Failure 403 :id está vacío
 // @router /:id [get]
-func (c *PsicologiaLimitesController) GetOne() {
+func (c *LimitesController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetPsicologiaLimitesById(id)
+	v, err := models.GetLimitesById(id)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -67,17 +67,17 @@ func (c *PsicologiaLimitesController) GetOne() {
 
 // GetAll ...
 // @Title Get All
-// @Description consulta todos los registros de la tabla PsicologiaLimites
+// @Description consulta todos los registros de la tabla Limites
 // @Param   query   consulta    string  false   "Filtro. Por ejemplo, col1: v1, col2: v2 ..."
 // @Param   fields  consulta    string  false   "Campos devueltos. Por ejemplo, col1, col2 ..."
 // @Param   sortby  consulta    string  false   "Campos ordenados por. Por ejemplo, Col1, col2 ..."
 // @Param   order   consulta    string  false   "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ..."
 // @Param   limit   consulta    string  false   "Limite el tamaño del conjunto de resultados. Debe ser un número entero"
 // @Param   offset  consulta    string  false   "Posición inicial del conjunto de resultados. Debe ser un número entero"
-// @Success 200 {object} models.PsicologiaLimites
+// @Success 200 {object} models.Limites
 // @Failure 403
 // @router / [get]
-func (c *PsicologiaLimitesController) GetAll() {
+func (c *LimitesController) GetAll() {
 	var fields []string
 	var sortby []string
 	var order []string
@@ -118,7 +118,7 @@ func (c *PsicologiaLimitesController) GetAll() {
 			query[k] = v
 		}
 	}
-	l, err := models.GetAllPsicologiaLimites(query, fields, sortby, order, offset, limit)
+	l, err := models.GetAllLimites(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -129,18 +129,18 @@ func (c *PsicologiaLimitesController) GetAll() {
 
 // Put ...
 // @Title Put
-// @Description actualizar un registro de la tabla PsicologiaLimites
+// @Description actualizar un registro de la tabla Limites
 // @Param	id		path 	string	true		"Id del registro a actualizar"
-// @Param	body		body 	models.PsicologiaLimites	true		"Cuerpo para el contenido de AccesoHistoriaClinica"
-// @Success 200 {object} models.PsicologiaLimites
+// @Param	body		body 	models.Limites	true		"Cuerpo para el contenido de AccesoHistoriaClinica"
+// @Success 200 {object} models.Limites
 // @Failure 403 :id no es entero
 // @router /:id [put]
-func (c *PsicologiaLimitesController) Put() {
+func (c *LimitesController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.PsicologiaLimites{IdLimite: id}
+	v := models.Limites{IdLimite: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdatePsicologiaLimites(&v); err == nil {
+		if err := models.UpdateLimites(&v); err == nil {
 			c.Data["json"] = "OK"
 		} else {
 			c.Data["json"] = err.Error()
@@ -153,15 +153,15 @@ func (c *PsicologiaLimitesController) Put() {
 
 // Delete ...
 // @Title Delete
-// @Description elimina un registro de la tabla PsicologiaLimites
+// @Description elimina un registro de la tabla Limites
 // @Param	id		path 	string	true		"Id del registro a eliminar"
 // @Success 200 {string} borrado exitoso!
 // @Failure 403 Id vacío
 // @router /:id [delete]
-func (c *PsicologiaLimitesController) Delete() {
+func (c *LimitesController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	if err := models.DeletePsicologiaLimites(id); err == nil {
+	if err := models.DeleteLimites(id); err == nil {
 		c.Data["json"] = "OK"
 	} else {
 		c.Data["json"] = err.Error()

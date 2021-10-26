@@ -1,18 +1,1243 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "beego Test API",
-        "description": "beego has a very cool tools to autogenerate documents for your API",
-        "version": "1.0.0",
-        "termsOfService": "http://beego.me/",
+        "title": "Psicologia",
+        "description": "Api para Psicología dentro del módulo de Salud del proyecto SIBUD",
+        "version": "1.0",
+        "termsOfService": "http://www.udistrital.edu.co/politicas-de-privacidad.pdf",
         "contact": {
-            "email": "astaxie@gmail.com"
+            "email": "baluist@correo.udistrital.edu.co"
         },
         "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+            "name": "BSD-3-Clause",
+            "url": "http://opensource.org/licenses/BSD-3-Clause"
         }
     },
     "basePath": "/v1",
-    "paths": null
+    "paths": {
+        "/Antecedente/": {
+            "get": {
+                "tags": [
+                    "Antecedente"
+                ],
+                "description": "consulta todos los registros de la tabla Antecedente",
+                "operationId": "AntecedenteController.Get All",
+                "parameters": [
+                    {
+                        "in": "consulta",
+                        "name": "query",
+                        "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "fields",
+                        "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "sortby",
+                        "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "order",
+                        "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "limit",
+                        "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "offset",
+                        "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Antecedente"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Antecedente"
+                ],
+                "description": "agregar un registro en la tabla Antecedente",
+                "operationId": "AntecedenteController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Cuerpo para el contenido de Antecedente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Antecedente"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Antecedente"
+                    },
+                    "403": {
+                        "description": "Cuerpo Vacío"
+                    }
+                }
+            }
+        },
+        "/Antecedente/{id}": {
+            "get": {
+                "tags": [
+                    "Antecedente"
+                ],
+                "description": "consultar un registro de la tabla Antecedente por su id",
+                "operationId": "AntecedenteController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id a consultar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Antecedente"
+                        }
+                    },
+                    "403": {
+                        "description": ":id está vacío"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Antecedente"
+                ],
+                "description": "actualizar un registro de la tabla Antecedente",
+                "operationId": "AntecedenteController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id del registro a actualizar",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Cuerpo para el contenido de Antecedente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Antecedente"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Antecedente"
+                        }
+                    },
+                    "403": {
+                        "description": ":id no es entero"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Antecedente"
+                ],
+                "description": "elimina un registro de la tabla Antecedente",
+                "operationId": "AntecedenteController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id del registro a eliminar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} borrado exitoso!"
+                    },
+                    "403": {
+                        "description": "Id vacío"
+                    }
+                }
+            }
+        },
+        "/ComportamientoConsulta/": {
+            "get": {
+                "tags": [
+                    "ComportamientoConsulta"
+                ],
+                "description": "consulta todos los registros de la tabla ComportamientoConsulta",
+                "operationId": "ComportamientoConsultaController.Get All",
+                "parameters": [
+                    {
+                        "in": "consulta",
+                        "name": "query",
+                        "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "fields",
+                        "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "sortby",
+                        "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "order",
+                        "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "limit",
+                        "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "offset",
+                        "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ComportamientoConsulta"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ComportamientoConsulta"
+                ],
+                "description": "agregar un registro en la tabla ComportamientoConsulta",
+                "operationId": "ComportamientoConsultaController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Cuerpo para el contenido de ComportamientoConsulta",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ComportamientoConsulta"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.ComportamientoConsulta"
+                    },
+                    "403": {
+                        "description": "Cuerpo Vacío"
+                    }
+                }
+            }
+        },
+        "/ComportamientoConsulta/{id}": {
+            "get": {
+                "tags": [
+                    "ComportamientoConsulta"
+                ],
+                "description": "consultar un registro de la tabla ComportamientoConsulta por su id",
+                "operationId": "ComportamientoConsultaController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id a consultar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ComportamientoConsulta"
+                        }
+                    },
+                    "403": {
+                        "description": ":id está vacío"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ComportamientoConsulta"
+                ],
+                "description": "actualizar un registro de la tabla ComportamientoConsulta",
+                "operationId": "ComportamientoConsultaController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id del registro a actualizar",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Cuerpo para el contenido de ComportamientoConsulta",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ComportamientoConsulta"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ComportamientoConsulta"
+                        }
+                    },
+                    "403": {
+                        "description": ":id no es entero"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ComportamientoConsulta"
+                ],
+                "description": "elimina un registro de la tabla ComportamientoConsulta",
+                "operationId": "ComportamientoConsultaController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id del registro a eliminar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} borrado exitoso!"
+                    },
+                    "403": {
+                        "description": "Id vacío"
+                    }
+                }
+            }
+        },
+        "/ComposicionFamiliar/": {
+            "get": {
+                "tags": [
+                    "ComposicionFamiliar"
+                ],
+                "description": "consulta todos los registros de la tabla ComposicionFamiliar",
+                "operationId": "ComposicionFamiliarController.Get All",
+                "parameters": [
+                    {
+                        "in": "consulta",
+                        "name": "query",
+                        "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "fields",
+                        "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "sortby",
+                        "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "order",
+                        "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "limit",
+                        "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "offset",
+                        "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ComposicionFamiliar"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ComposicionFamiliar"
+                ],
+                "description": "agregar un registro en la tabla ComposicionFamiliar",
+                "operationId": "ComposicionFamiliarController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Cuerpo para el contenido de ComposicionFamiliar",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ComposicionFamiliar"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.ComposicionFamiliar"
+                    },
+                    "403": {
+                        "description": "Cuerpo Vacío"
+                    }
+                }
+            }
+        },
+        "/ComposicionFamiliar/{id}": {
+            "get": {
+                "tags": [
+                    "ComposicionFamiliar"
+                ],
+                "description": "consultar un registro de la tabla ComposicionFamiliar por su id",
+                "operationId": "ComposicionFamiliarController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id a consultar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ComposicionFamiliar"
+                        }
+                    },
+                    "403": {
+                        "description": ":id está vacío"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ComposicionFamiliar"
+                ],
+                "description": "actualizar un registro de la tabla ComposicionFamiliar",
+                "operationId": "ComposicionFamiliarController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id del registro a actualizar",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Cuerpo para el contenido de ComposicionFamiliar",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ComposicionFamiliar"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ComposicionFamiliar"
+                        }
+                    },
+                    "403": {
+                        "description": ":id no es entero"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ComposicionFamiliar"
+                ],
+                "description": "elimina un registro de la tabla ComposicionFamiliar",
+                "operationId": "ComposicionFamiliarController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id del registro a eliminar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} borrado exitoso!"
+                    },
+                    "403": {
+                        "description": "Id vacío"
+                    }
+                }
+            }
+        },
+        "/Diagnostico/": {
+            "get": {
+                "tags": [
+                    "Diagnostico"
+                ],
+                "description": "consulta todos los registros de la tabla Diagnostico",
+                "operationId": "DiagnosticoController.Get All",
+                "parameters": [
+                    {
+                        "in": "consulta",
+                        "name": "query",
+                        "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "fields",
+                        "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "sortby",
+                        "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "order",
+                        "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "limit",
+                        "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "offset",
+                        "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Diagnostico"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Diagnostico"
+                ],
+                "description": "agregar un registro en la tabla Diagnostico",
+                "operationId": "DiagnosticoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Cuerpo para el contenido de Diagnostico",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Diagnostico"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Diagnostico"
+                    },
+                    "403": {
+                        "description": "Cuerpo Vacío"
+                    }
+                }
+            }
+        },
+        "/Diagnostico/{id}": {
+            "get": {
+                "tags": [
+                    "Diagnostico"
+                ],
+                "description": "consultar un registro de la tabla Diagnostico por su id",
+                "operationId": "DiagnosticoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id a consultar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Diagnostico"
+                        }
+                    },
+                    "403": {
+                        "description": ":id está vacío"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Diagnostico"
+                ],
+                "description": "actualizar un registro de la tabla Diagnostico",
+                "operationId": "DiagnosticoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id del registro a actualizar",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Cuerpo para el contenido de Diagnostico",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Diagnostico"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Diagnostico"
+                        }
+                    },
+                    "403": {
+                        "description": ":id no es entero"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Diagnostico"
+                ],
+                "description": "elimina un registro de la tabla Diagnostico",
+                "operationId": "DiagnosticoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id del registro a eliminar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} borrado exitoso!"
+                    },
+                    "403": {
+                        "description": "Id vacío"
+                    }
+                }
+            }
+        },
+        "/Limites/": {
+            "get": {
+                "tags": [
+                    "Limites"
+                ],
+                "description": "consulta todos los registros de la tabla Limites",
+                "operationId": "LimitesController.Get All",
+                "parameters": [
+                    {
+                        "in": "consulta",
+                        "name": "query",
+                        "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "fields",
+                        "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "sortby",
+                        "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "order",
+                        "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "limit",
+                        "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "offset",
+                        "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Limites"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Limites"
+                ],
+                "description": "agregar un registro en la tabla Limites",
+                "operationId": "LimitesController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Cuerpo para el contenido de Limites",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Limites"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Limites"
+                    },
+                    "403": {
+                        "description": "Cuerpo Vacío"
+                    }
+                }
+            }
+        },
+        "/Limites/{id}": {
+            "get": {
+                "tags": [
+                    "Limites"
+                ],
+                "description": "consultar un registro de la tabla Limites por su id",
+                "operationId": "LimitesController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id a consultar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Limites"
+                        }
+                    },
+                    "403": {
+                        "description": ":id está vacío"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Limites"
+                ],
+                "description": "actualizar un registro de la tabla Limites",
+                "operationId": "LimitesController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id del registro a actualizar",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Cuerpo para el contenido de AccesoHistoriaClinica",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Limites"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Limites"
+                        }
+                    },
+                    "403": {
+                        "description": ":id no es entero"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Limites"
+                ],
+                "description": "elimina un registro de la tabla Limites",
+                "operationId": "LimitesController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id del registro a eliminar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} borrado exitoso!"
+                    },
+                    "403": {
+                        "description": "Id vacío"
+                    }
+                }
+            }
+        },
+        "/TipoAntecedente/": {
+            "get": {
+                "tags": [
+                    "TipoAntecedente"
+                ],
+                "description": "consulta todos los registros de la tabla TipoAntecedente",
+                "operationId": "TipoAntecedenteController.Get All",
+                "parameters": [
+                    {
+                        "in": "consulta",
+                        "name": "query",
+                        "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "fields",
+                        "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "sortby",
+                        "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "order",
+                        "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "limit",
+                        "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
+                        "type": "string"
+                    },
+                    {
+                        "in": "consulta",
+                        "name": "offset",
+                        "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoAntecedente"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "TipoAntecedente"
+                ],
+                "description": "agregar un registro en la tabla TipoAntecedente",
+                "operationId": "TipoAntecedenteController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Cuerpo para el contenido de TipoAntecedente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoAntecedente"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TipoAntecedente"
+                    },
+                    "403": {
+                        "description": "Cuerpo Vacío"
+                    }
+                }
+            }
+        },
+        "/TipoAntecedente/{id}": {
+            "get": {
+                "tags": [
+                    "TipoAntecedente"
+                ],
+                "description": "consultar un registro de la tabla TipoAntecedente por su id",
+                "operationId": "TipoAntecedenteController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id a consultar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoAntecedente"
+                        }
+                    },
+                    "403": {
+                        "description": ":id está vacío"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "TipoAntecedente"
+                ],
+                "description": "actualizar un registro de la tabla TipoAntecedente",
+                "operationId": "TipoAntecedenteController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id del registro a actualizar",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Cuerpo para el contenido de TipoAntecedente",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoAntecedente"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoAntecedente"
+                        }
+                    },
+                    "403": {
+                        "description": ":id no es entero"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "TipoAntecedente"
+                ],
+                "description": "elimina un registro de la tabla TipoAntecedente",
+                "operationId": "TipoAntecedenteController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Id del registro a eliminar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} borrado exitoso!"
+                    },
+                    "403": {
+                        "description": "Id vacío"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Antecedente": {
+            "title": "Antecedente",
+            "type": "object",
+            "properties": {
+                "Actual_somatico": {
+                    "type": "string"
+                },
+                "IdAntecedente": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdHistoriaClinica": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdTipoAntecedentePsicologico": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Pasado_somatico": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ComportamientoConsulta": {
+            "title": "ComportamientoConsulta",
+            "type": "object",
+            "properties": {
+                "Afrontamiento": {
+                    "type": "string"
+                },
+                "IdComportamientoConsulta": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdHojaHistoria": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Problematica": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ComposicionFamiliar": {
+            "title": "ComposicionFamiliar",
+            "type": "object",
+            "properties": {
+                "IdComposicionFamiliar": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdHojaHistoria": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Observaciones": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Diagnostico": {
+            "title": "Diagnostico",
+            "type": "object",
+            "properties": {
+                "Acuerdo": {
+                    "type": "string"
+                },
+                "Evolucion": {
+                    "type": "string"
+                },
+                "Hipotesis": {
+                    "type": "string"
+                },
+                "IdDiagnostico": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdHojaHistoria": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Observaciones": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Limites": {
+            "title": "Limites",
+            "type": "object",
+            "properties": {
+                "Claros": {
+                    "type": "string"
+                },
+                "Difusos": {
+                    "type": "string"
+                },
+                "IdHojaHistoria": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdLimite": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Rigidos": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.TipoAntecedente": {
+            "title": "TipoAntecedente",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "IdTipoAntecedentePsicologico": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ValoracionInterpersonal": {
+            "title": "ValoracionInterpersonal",
+            "type": "object",
+            "properties": {
+                "Autoridad": {
+                    "type": "string"
+                },
+                "Drogas": {
+                    "type": "string"
+                },
+                "Economicos": {
+                    "type": "string"
+                },
+                "IdHojaHistoria": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdValoracionInterpersonal": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Judiciales": {
+                    "type": "string"
+                },
+                "Motivo": {
+                    "type": "string"
+                },
+                "Orientacion": {
+                    "type": "string"
+                },
+                "Pareja": {
+                    "type": "string"
+                },
+                "Pares": {
+                    "type": "string"
+                },
+                "Proteccion": {
+                    "type": "string"
+                },
+                "Relaciones": {
+                    "type": "boolean"
+                },
+                "Satisfaccion": {
+                    "type": "string"
+                }
+            }
+        }
+    }
 }

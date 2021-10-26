@@ -11,12 +11,12 @@ import (
 	"github.com/astaxie/beego"
 )
 
-type PsicologiaTipoAntecedenteController struct {
+type TipoAntecedenteController struct {
 	beego.Controller
 }
 
 // URLMapping ...
-func (c *PsicologiaTipoAntecedenteController) URLMapping() {
+func (c *TipoAntecedenteController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
@@ -26,15 +26,15 @@ func (c *PsicologiaTipoAntecedenteController) URLMapping() {
 
 // Post ...
 // @Title Post
-// @Description agregar un registro en la tabla PsicologiaTipoAntecedente
-// @Param	body		body 	models.PsicologiaTipoAntecedente	true		"Cuerpo para el contenido de PsicologiaTipoAntecedente"
-// @Success 201 {int} models.PsicologiaTipoAntecedente
+// @Description agregar un registro en la tabla TipoAntecedente
+// @Param	body		body 	models.TipoAntecedente	true		"Cuerpo para el contenido de TipoAntecedente"
+// @Success 201 {int} models.TipoAntecedente
 // @Failure 403 Cuerpo Vacío
 // @router / [post]
-func (c *PsicologiaTipoAntecedenteController) Post() {
-	var v models.PsicologiaTipoAntecedente
+func (c *TipoAntecedenteController) Post() {
+	var v models.TipoAntecedente
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddPsicologiaTipoAntecedente(&v); err == nil {
+		if _, err := models.AddTipoAntecedente(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
@@ -48,15 +48,15 @@ func (c *PsicologiaTipoAntecedenteController) Post() {
 
 // GetOne ...
 // @Title Get One
-// @Description consultar un registro de la tabla PsicologiaTipoAntecedente por su id
+// @Description consultar un registro de la tabla TipoAntecedente por su id
 // @Param	id		path 	string	true		"Id a consultar"
-// @Success 200 {object} models.PsicologiaTipoAntecedente
+// @Success 200 {object} models.TipoAntecedente
 // @Failure 403 :id está vacío
 // @router /:id [get]
-func (c *PsicologiaTipoAntecedenteController) GetOne() {
+func (c *TipoAntecedenteController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetPsicologiaTipoAntecedenteById(id)
+	v, err := models.GetTipoAntecedenteById(id)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -67,17 +67,17 @@ func (c *PsicologiaTipoAntecedenteController) GetOne() {
 
 // GetAll ...
 // @Title Get All
-// @Description consulta todos los registros de la tabla PsicologiaTipoAntecedente
+// @Description consulta todos los registros de la tabla TipoAntecedente
 // @Param   query   consulta    string  false   "Filtro. Por ejemplo, col1: v1, col2: v2 ..."
 // @Param   fields  consulta    string  false   "Campos devueltos. Por ejemplo, col1, col2 ..."
 // @Param   sortby  consulta    string  false   "Campos ordenados por. Por ejemplo, Col1, col2 ..."
 // @Param   order   consulta    string  false   "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ..."
 // @Param   limit   consulta    string  false   "Limite el tamaño del conjunto de resultados. Debe ser un número entero"
 // @Param   offset  consulta    string  false   "Posición inicial del conjunto de resultados. Debe ser un número entero"
-// @Success 200 {object} models.PsicologiaTipoAntecedente
+// @Success 200 {object} models.TipoAntecedente
 // @Failure 403
 // @router / [get]
-func (c *PsicologiaTipoAntecedenteController) GetAll() {
+func (c *TipoAntecedenteController) GetAll() {
 	var fields []string
 	var sortby []string
 	var order []string
@@ -118,7 +118,7 @@ func (c *PsicologiaTipoAntecedenteController) GetAll() {
 			query[k] = v
 		}
 	}
-	l, err := models.GetAllPsicologiaTipoAntecedente(query, fields, sortby, order, offset, limit)
+	l, err := models.GetAllTipoAntecedente(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -129,18 +129,18 @@ func (c *PsicologiaTipoAntecedenteController) GetAll() {
 
 // Put ...
 // @Title Put
-// @Description actualizar un registro de la tabla PsicologiaTipoAntecedente
+// @Description actualizar un registro de la tabla TipoAntecedente
 // @Param	id		path 	string	true		"Id del registro a actualizar"
-// @Param	body		body 	models.PsicologiaTipoAntecedente	true		"Cuerpo para el contenido de PsicologiaTipoAntecedente"
-// @Success 200 {object} models.PsicologiaTipoAntecedente
+// @Param	body		body 	models.TipoAntecedente	true		"Cuerpo para el contenido de TipoAntecedente"
+// @Success 200 {object} models.TipoAntecedente
 // @Failure 403 :id no es entero
 // @router /:id [put]
-func (c *PsicologiaTipoAntecedenteController) Put() {
+func (c *TipoAntecedenteController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.PsicologiaTipoAntecedente{IdTipoAntecedentePsicologico: id}
+	v := models.TipoAntecedente{IdTipoAntecedentePsicologico: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdatePsicologiaTipoAntecedente(&v); err == nil {
+		if err := models.UpdateTipoAntecedente(&v); err == nil {
 			c.Data["json"] = "OK"
 		} else {
 			c.Data["json"] = err.Error()
@@ -153,15 +153,15 @@ func (c *PsicologiaTipoAntecedenteController) Put() {
 
 // Delete ...
 // @Title Delete
-// @Description elimina un registro de la tabla PsicologiaTipoAntecedente
+// @Description elimina un registro de la tabla TipoAntecedente
 // @Param	id		path 	string	true		"Id del registro a eliminar"
 // @Success 200 {string} borrado exitoso!
 // @Failure 403 Id vacío
 // @router /:id [delete]
-func (c *PsicologiaTipoAntecedenteController) Delete() {
+func (c *TipoAntecedenteController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	if err := models.DeletePsicologiaTipoAntecedente(id); err == nil {
+	if err := models.DeleteTipoAntecedente(id); err == nil {
 		c.Data["json"] = "OK"
 	} else {
 		c.Data["json"] = err.Error()

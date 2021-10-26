@@ -11,12 +11,12 @@ import (
 	"github.com/astaxie/beego"
 )
 
-type PsicologiaComportamientoConsultaController struct {
+type ComportamientoConsultaController struct {
 	beego.Controller
 }
 
 // URLMapping ...
-func (c *PsicologiaComportamientoConsultaController) URLMapping() {
+func (c *ComportamientoConsultaController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
@@ -26,15 +26,15 @@ func (c *PsicologiaComportamientoConsultaController) URLMapping() {
 
 // Post ...
 // @Title Post
-// @Description agregar un registro en la tabla PsicologiaComportamientoConsulta
-// @Param	body		body 	models.PsicologiaComportamientoConsulta	true		"Cuerpo para el contenido de PsicologiaComportamientoConsulta"
-// @Success 201 {int} models.PsicologiaComportamientoConsulta
+// @Description agregar un registro en la tabla ComportamientoConsulta
+// @Param	body		body 	models.ComportamientoConsulta	true		"Cuerpo para el contenido de ComportamientoConsulta"
+// @Success 201 {int} models.ComportamientoConsulta
 // @Failure 403 Cuerpo Vacío
 // @router / [post]
-func (c *PsicologiaComportamientoConsultaController) Post() {
-	var v models.PsicologiaComportamientoConsulta
+func (c *ComportamientoConsultaController) Post() {
+	var v models.ComportamientoConsulta
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddPsicologiaComportamientoConsulta(&v); err == nil {
+		if _, err := models.AddComportamientoConsulta(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
@@ -48,15 +48,15 @@ func (c *PsicologiaComportamientoConsultaController) Post() {
 
 // GetOne ...
 // @Title Get One
-// @Description consultar un registro de la tabla PsicologiaComportamientoConsulta por su id
+// @Description consultar un registro de la tabla ComportamientoConsulta por su id
 // @Param	id		path 	string	true		"Id a consultar"
-// @Success 200 {object} models.PsicologiaComportamientoConsulta
+// @Success 200 {object} models.ComportamientoConsulta
 // @Failure 403 :id está vacío
 // @router /:id [get]
-func (c *PsicologiaComportamientoConsultaController) GetOne() {
+func (c *ComportamientoConsultaController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetPsicologiaComportamientoConsultaById(id)
+	v, err := models.GetComportamientoConsultaById(id)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -67,17 +67,17 @@ func (c *PsicologiaComportamientoConsultaController) GetOne() {
 
 // GetAll ...
 // @Title Get All
-// @Description consulta todos los registros de la tabla PsicologiaComportamientoConsulta
+// @Description consulta todos los registros de la tabla ComportamientoConsulta
 // @Param   query   consulta    string  false   "Filtro. Por ejemplo, col1: v1, col2: v2 ..."
 // @Param   fields  consulta    string  false   "Campos devueltos. Por ejemplo, col1, col2 ..."
 // @Param   sortby  consulta    string  false   "Campos ordenados por. Por ejemplo, Col1, col2 ..."
 // @Param   order   consulta    string  false   "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ..."
 // @Param   limit   consulta    string  false   "Limite el tamaño del conjunto de resultados. Debe ser un número entero"
 // @Param   offset  consulta    string  false   "Posición inicial del conjunto de resultados. Debe ser un número entero"
-// @Success 200 {object} models.PsicologiaComportamientoConsulta
+// @Success 200 {object} models.ComportamientoConsulta
 // @Failure 403
 // @router / [get]
-func (c *PsicologiaComportamientoConsultaController) GetAll() {
+func (c *ComportamientoConsultaController) GetAll() {
 	var fields []string
 	var sortby []string
 	var order []string
@@ -118,7 +118,7 @@ func (c *PsicologiaComportamientoConsultaController) GetAll() {
 			query[k] = v
 		}
 	}
-	l, err := models.GetAllPsicologiaComportamientoConsulta(query, fields, sortby, order, offset, limit)
+	l, err := models.GetAllComportamientoConsulta(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -129,18 +129,18 @@ func (c *PsicologiaComportamientoConsultaController) GetAll() {
 
 // Put ...
 // @Title Put
-// @Description actualizar un registro de la tabla PsicologiaComportamientoConsulta
+// @Description actualizar un registro de la tabla ComportamientoConsulta
 // @Param	id		path 	string	true		"Id del registro a actualizar"
-// @Param	body		body 	models.PsicologiaComportamientoConsulta	true		"Cuerpo para el contenido de PsicologiaComportamientoConsulta"
-// @Success 200 {object} models.PsicologiaComportamientoConsulta
+// @Param	body		body 	models.ComportamientoConsulta	true		"Cuerpo para el contenido de ComportamientoConsulta"
+// @Success 200 {object} models.ComportamientoConsulta
 // @Failure 403 :id no es entero
 // @router /:id [put]
-func (c *PsicologiaComportamientoConsultaController) Put() {
+func (c *ComportamientoConsultaController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.PsicologiaComportamientoConsulta{IdComportamientoConsulta: id}
+	v := models.ComportamientoConsulta{IdComportamientoConsulta: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdatePsicologiaComportamientoConsulta(&v); err == nil {
+		if err := models.UpdateComportamientoConsulta(&v); err == nil {
 			c.Data["json"] = "OK"
 		} else {
 			c.Data["json"] = err.Error()
@@ -153,15 +153,15 @@ func (c *PsicologiaComportamientoConsultaController) Put() {
 
 // Delete ...
 // @Title Delete
-// @Description elimina un registro de la tabla PsicologiaComportamientoConsulta
+// @Description elimina un registro de la tabla ComportamientoConsulta
 // @Param	id		path 	string	true		"Id del registro a eliminar"
 // @Success 200 {string} borrado exitoso!
 // @Failure 403 Id vacío
 // @router /:id [delete]
-func (c *PsicologiaComportamientoConsultaController) Delete() {
+func (c *ComportamientoConsultaController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	if err := models.DeletePsicologiaComportamientoConsulta(id); err == nil {
+	if err := models.DeleteComportamientoConsulta(id); err == nil {
 		c.Data["json"] = "OK"
 	} else {
 		c.Data["json"] = err.Error()

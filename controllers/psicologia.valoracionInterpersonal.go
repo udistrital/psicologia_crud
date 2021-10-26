@@ -11,12 +11,12 @@ import (
 	"github.com/astaxie/beego"
 )
 
-type PsicologiaValoracionInterpersonalController struct {
+type ValoracionInterpersonalController struct {
 	beego.Controller
 }
 
 // URLMapping ...
-func (c *PsicologiaValoracionInterpersonalController) URLMapping() {
+func (c *ValoracionInterpersonalController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
@@ -26,15 +26,15 @@ func (c *PsicologiaValoracionInterpersonalController) URLMapping() {
 
 // Post ...
 // @Title Post
-// @Description agregar un registro en la tabla PsicologiaValoracionInterpersonal
-// @Param	body		body 	models.PsicologiaValoracionInterpersonal	true		"Cuerpo para el contenido de PsicologiaValoracionInterpersonal"
-// @Success 201 {int} models.PsicologiaValoracionInterpersonal
+// @Description agregar un registro en la tabla ValoracionInterpersonal
+// @Param	body		body 	models.ValoracionInterpersonal	true		"Cuerpo para el contenido de ValoracionInterpersonal"
+// @Success 201 {int} models.ValoracionInterpersonal
 // @Failure 403 Cuerpo Vacío
 // @router / [post]
-func (c *PsicologiaValoracionInterpersonalController) Post() {
-	var v models.PsicologiaValoracionInterpersonal
+func (c *ValoracionInterpersonalController) Post() {
+	var v models.ValoracionInterpersonal
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddPsicologiaValoracionInterpersonal(&v); err == nil {
+		if _, err := models.AddValoracionInterpersonal(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
@@ -48,15 +48,15 @@ func (c *PsicologiaValoracionInterpersonalController) Post() {
 
 // GetOne ...
 // @Title Get One
-// @Description consultar un registro de la tabla PsicologiaValoracionInterpersonal por su id
+// @Description consultar un registro de la tabla ValoracionInterpersonal por su id
 // @Param	id		path 	string	true		"Id a consultar"
-// @Success 200 {object} models.PsicologiaValoracionInterpersonal
+// @Success 200 {object} models.ValoracionInterpersonal
 // @Failure 403 :id está vacío
 // @router /:id [get]
-func (c *PsicologiaValoracionInterpersonalController) GetOne() {
+func (c *ValoracionInterpersonalController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetPsicologiaValoracionInterpersonalById(id)
+	v, err := models.GetValoracionInterpersonalById(id)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -67,17 +67,17 @@ func (c *PsicologiaValoracionInterpersonalController) GetOne() {
 
 // GetAll ...
 // @Title Get All
-// @Description consulta todos los registros de la tabla PsicologiaValoracionInterpersonal
+// @Description consulta todos los registros de la tabla ValoracionInterpersonal
 // @Param   query   consulta    string  false   "Filtro. Por ejemplo, col1: v1, col2: v2 ..."
 // @Param   fields  consulta    string  false   "Campos devueltos. Por ejemplo, col1, col2 ..."
 // @Param   sortby  consulta    string  false   "Campos ordenados por. Por ejemplo, Col1, col2 ..."
 // @Param   order   consulta    string  false   "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ..."
 // @Param   limit   consulta    string  false   "Limite el tamaño del conjunto de resultados. Debe ser un número entero"
 // @Param   offset  consulta    string  false   "Posición inicial del conjunto de resultados. Debe ser un número entero"
-// @Success 200 {object} models.PsicologiaValoracionInterpersonal
+// @Success 200 {object} models.ValoracionInterpersonal
 // @Failure 403
 // @router / [get]
-func (c *PsicologiaValoracionInterpersonalController) GetAll() {
+func (c *ValoracionInterpersonalController) GetAll() {
 	var fields []string
 	var sortby []string
 	var order []string
@@ -118,7 +118,7 @@ func (c *PsicologiaValoracionInterpersonalController) GetAll() {
 			query[k] = v
 		}
 	}
-	l, err := models.GetAllPsicologiaValoracionInterpersonal(query, fields, sortby, order, offset, limit)
+	l, err := models.GetAllValoracionInterpersonal(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -129,18 +129,18 @@ func (c *PsicologiaValoracionInterpersonalController) GetAll() {
 
 // Put ...
 // @Title Put
-// @Description actualizar un registro de la tabla PsicologiaValoracionInterpersonal
+// @Description actualizar un registro de la tabla ValoracionInterpersonal
 // @Param	id		path 	string	true		"Id del registro a actualizar"
-// @Param	body		body 	models.PsicologiaValoracionInterpersonal	true		"Cuerpo para el contenido de PsicologiaValoracionInterpersonal"
-// @Success 200 {object} models.PsicologiaValoracionInterpersonal
+// @Param	body		body 	models.ValoracionInterpersonal	true		"Cuerpo para el contenido de ValoracionInterpersonal"
+// @Success 200 {object} models.ValoracionInterpersonal
 // @Failure 403 :id no es entero
 // @router /:id [put]
-func (c *PsicologiaValoracionInterpersonalController) Put() {
+func (c *ValoracionInterpersonalController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.PsicologiaValoracionInterpersonal{IdValoracionInterpersonal: id}
+	v := models.ValoracionInterpersonal{IdValoracionInterpersonal: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdatePsicologiaValoracionInterpersonal(&v); err == nil {
+		if err := models.UpdateValoracionInterpersonal(&v); err == nil {
 			c.Data["json"] = "OK"
 		} else {
 			c.Data["json"] = err.Error()
@@ -153,15 +153,15 @@ func (c *PsicologiaValoracionInterpersonalController) Put() {
 
 // Delete ...
 // @Title Delete
-// @Description elimina un registro de la tabla PsicologiaValoracionInterpersonal
+// @Description elimina un registro de la tabla ValoracionInterpersonal
 // @Param	id		path 	string	true		"Id del registro a eliminar"
 // @Success 200 {string} borrado exitoso!
 // @Failure 403 Id vacío
 // @router /:id [delete]
-func (c *PsicologiaValoracionInterpersonalController) Delete() {
+func (c *ValoracionInterpersonalController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	if err := models.DeletePsicologiaValoracionInterpersonal(id); err == nil {
+	if err := models.DeleteValoracionInterpersonal(id); err == nil {
 		c.Data["json"] = "OK"
 	} else {
 		c.Data["json"] = err.Error()

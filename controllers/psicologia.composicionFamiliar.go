@@ -11,12 +11,12 @@ import (
 	"github.com/astaxie/beego"
 )
 
-type PsicologiaComposicionFamiliarController struct {
+type ComposicionFamiliarController struct {
 	beego.Controller
 }
 
 // URLMapping ...
-func (c *PsicologiaComposicionFamiliarController) URLMapping() {
+func (c *ComposicionFamiliarController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
@@ -26,15 +26,15 @@ func (c *PsicologiaComposicionFamiliarController) URLMapping() {
 
 // Post ...
 // @Title Post
-// @Description agregar un registro en la tabla PsicologiaComposicionFamiliar
-// @Param	body		body 	models.PsicologiaComposicionFamiliar	true		"Cuerpo para el contenido de PsicologiaComposicionFamiliar"
-// @Success 201 {int} models.PsicologiaComposicionFamiliar
+// @Description agregar un registro en la tabla ComposicionFamiliar
+// @Param	body		body 	models.ComposicionFamiliar	true		"Cuerpo para el contenido de ComposicionFamiliar"
+// @Success 201 {int} models.ComposicionFamiliar
 // @Failure 403 Cuerpo Vacío
 // @router / [post]
-func (c *PsicologiaComposicionFamiliarController) Post() {
-	var v models.PsicologiaComposicionFamiliar
+func (c *ComposicionFamiliarController) Post() {
+	var v models.ComposicionFamiliar
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddPsicologiaComposicionFamiliar(&v); err == nil {
+		if _, err := models.AddComposicionFamiliar(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
@@ -48,15 +48,15 @@ func (c *PsicologiaComposicionFamiliarController) Post() {
 
 // GetOne ...
 // @Title Get One
-// @Description consultar un registro de la tabla PsicologiaComposicionFamiliar por su id
+// @Description consultar un registro de la tabla ComposicionFamiliar por su id
 // @Param	id		path 	string	true		"Id a consultar"
-// @Success 200 {object} models.PsicologiaComposicionFamiliar
+// @Success 200 {object} models.ComposicionFamiliar
 // @Failure 403 :id está vacío
 // @router /:id [get]
-func (c *PsicologiaComposicionFamiliarController) GetOne() {
+func (c *ComposicionFamiliarController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetPsicologiaComposicionFamiliarById(id)
+	v, err := models.GetComposicionFamiliarById(id)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -67,17 +67,17 @@ func (c *PsicologiaComposicionFamiliarController) GetOne() {
 
 // GetAll ...
 // @Title Get All
-// @Description consulta todos los registros de la tabla PsicologiaComposicionFamiliar
+// @Description consulta todos los registros de la tabla ComposicionFamiliar
 // @Param   query   consulta    string  false   "Filtro. Por ejemplo, col1: v1, col2: v2 ..."
 // @Param   fields  consulta    string  false   "Campos devueltos. Por ejemplo, col1, col2 ..."
 // @Param   sortby  consulta    string  false   "Campos ordenados por. Por ejemplo, Col1, col2 ..."
 // @Param   order   consulta    string  false   "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ..."
 // @Param   limit   consulta    string  false   "Limite el tamaño del conjunto de resultados. Debe ser un número entero"
 // @Param   offset  consulta    string  false   "Posición inicial del conjunto de resultados. Debe ser un número entero"
-// @Success 200 {object} models.PsicologiaComposicionFamiliar
+// @Success 200 {object} models.ComposicionFamiliar
 // @Failure 403
 // @router / [get]
-func (c *PsicologiaComposicionFamiliarController) GetAll() {
+func (c *ComposicionFamiliarController) GetAll() {
 	var fields []string
 	var sortby []string
 	var order []string
@@ -118,7 +118,7 @@ func (c *PsicologiaComposicionFamiliarController) GetAll() {
 			query[k] = v
 		}
 	}
-	l, err := models.GetAllPsicologiaComposicionFamiliar(query, fields, sortby, order, offset, limit)
+	l, err := models.GetAllComposicionFamiliar(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
@@ -129,18 +129,18 @@ func (c *PsicologiaComposicionFamiliarController) GetAll() {
 
 // Put ...
 // @Title Put
-// @Description actualizar un registro de la tabla PsicologiaComposicionFamiliar
+// @Description actualizar un registro de la tabla ComposicionFamiliar
 // @Param	id		path 	string	true		"Id del registro a actualizar"
-// @Param	body		body 	models.PsicologiaComposicionFamiliar	true		"Cuerpo para el contenido de PsicologiaComposicionFamiliar"
-// @Success 200 {object} models.PsicologiaComposicionFamiliar
+// @Param	body		body 	models.ComposicionFamiliar	true		"Cuerpo para el contenido de ComposicionFamiliar"
+// @Success 200 {object} models.ComposicionFamiliar
 // @Failure 403 :id no es entero
 // @router /:id [put]
-func (c *PsicologiaComposicionFamiliarController) Put() {
+func (c *ComposicionFamiliarController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.PsicologiaComposicionFamiliar{IdPsicologiaComposicionFamiliar: id}
+	v := models.ComposicionFamiliar{IdComposicionFamiliar: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdatePsicologiaComposicionFamiliar(&v); err == nil {
+		if err := models.UpdateComposicionFamiliar(&v); err == nil {
 			c.Data["json"] = "OK"
 		} else {
 			c.Data["json"] = err.Error()
@@ -153,15 +153,15 @@ func (c *PsicologiaComposicionFamiliarController) Put() {
 
 // Delete ...
 // @Title Delete
-// @Description elimina un registro de la tabla PsicologiaComposicionFamiliar
+// @Description elimina un registro de la tabla ComposicionFamiliar
 // @Param	id		path 	string	true		"Id del registro a eliminar"
 // @Success 200 {string} borrado exitoso!
 // @Failure 403 Id vacío
 // @router /:id [delete]
-func (c *PsicologiaComposicionFamiliarController) Delete() {
+func (c *ComposicionFamiliarController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	if err := models.DeletePsicologiaComposicionFamiliar(id); err == nil {
+	if err := models.DeleteComposicionFamiliar(id); err == nil {
 		c.Data["json"] = "OK"
 	} else {
 		c.Data["json"] = err.Error()
