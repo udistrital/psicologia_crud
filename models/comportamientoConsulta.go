@@ -11,7 +11,7 @@ import (
 
 type ComportamientoConsulta struct {
 	IdComportamientoConsulta int    `orm:"column(id_comportamiento_consulta);pk;auto"`
-	IdHojaHistoria           *int   `orm:"column(id_hoja_historia);rel(fk);null"`
+	IdHojaHistoria           int    `orm:"column(id_hoja_historia);null"`
 	Problematica             string `orm:"column(problematica);null"`
 	Afrontamiento            string `orm:"column(afrontamiento);null"`
 }

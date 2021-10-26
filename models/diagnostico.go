@@ -11,7 +11,7 @@ import (
 
 type Diagnostico struct {
 	IdDiagnostico  int    `orm:"column(id_diagnostico_psicologia);pk;auto"`
-	IdHojaHistoria *int   `orm:"column(id_hoja_historia);rel(fk);null"`
+	IdHojaHistoria int    `orm:"column(id_hoja_historia);null"`
 	Hipotesis      string `orm:"column(hipotesis);null"`
 	Acuerdo        string `orm:"column(acuerdo);null"`
 	Observaciones  string `orm:"column(observaciones);null"`

@@ -11,7 +11,7 @@ import (
 
 type ComposicionFamiliar struct {
 	IdComposicionFamiliar int    `orm:"column(id_composicion_familiar);pk;auto"`
-	IdHojaHistoria        *int   `orm:"column(id_hoja_historia);rel(fk);null"`
+	IdHojaHistoria        int    `orm:"column(id_hoja_historia);null"`
 	Observaciones         string `orm:"column(observaciones);null"`
 }
 

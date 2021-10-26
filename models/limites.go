@@ -14,7 +14,7 @@ type Limites struct {
 	Difusos        string `orm:"column(difusos);null"`
 	Claros         string `orm:"column(claros);null"`
 	Rigidos        string `orm:"column(rigidos);null"`
-	IdHojaHistoria *int   `orm:"column(id_hoja_historia);rel(fk);null"`
+	IdHojaHistoria int    `orm:"column(id_hoja_historia);null"`
 }
 
 func (p *Limites) TableName() string {
