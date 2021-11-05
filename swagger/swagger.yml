@@ -9,7 +9,7 @@ info:
   license:
     name: BSD-3-Clause
     url: http://opensource.org/licenses/BSD-3-Clause
-basePath: /v1
+basePath: /Psicologia
 paths:
   /Antecedente/:
     get:
@@ -18,27 +18,27 @@ paths:
       description: consulta todos los registros de la tabla Antecedente
       operationId: AntecedenteController.Get All
       parameters:
-      - in: consulta
+      - in: query
         name: query
         description: 'Filtro. Por ejemplo, col1: v1, col2: v2 ...'
         type: string
-      - in: consulta
+      - in: query
         name: fields
         description: Campos devueltos. Por ejemplo, col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: sortby
         description: Campos ordenados por. Por ejemplo, Col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: order
         description: El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...
         type: string
-      - in: consulta
+      - in: query
         name: limit
         description: Limite el tamaño del conjunto de resultados. Debe ser un número entero
         type: string
-      - in: consulta
+      - in: query
         name: offset
         description: Posición inicial del conjunto de resultados. Debe ser un número entero
         type: string
@@ -132,27 +132,27 @@ paths:
       description: consulta todos los registros de la tabla ComportamientoConsulta
       operationId: ComportamientoConsultaController.Get All
       parameters:
-      - in: consulta
+      - in: query
         name: query
         description: 'Filtro. Por ejemplo, col1: v1, col2: v2 ...'
         type: string
-      - in: consulta
+      - in: query
         name: fields
         description: Campos devueltos. Por ejemplo, col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: sortby
         description: Campos ordenados por. Por ejemplo, Col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: order
         description: El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...
         type: string
-      - in: consulta
+      - in: query
         name: limit
         description: Limite el tamaño del conjunto de resultados. Debe ser un número entero
         type: string
-      - in: consulta
+      - in: query
         name: offset
         description: Posición inicial del conjunto de resultados. Debe ser un número entero
         type: string
@@ -246,27 +246,27 @@ paths:
       description: consulta todos los registros de la tabla ComposicionFamiliar
       operationId: ComposicionFamiliarController.Get All
       parameters:
-      - in: consulta
+      - in: query
         name: query
         description: 'Filtro. Por ejemplo, col1: v1, col2: v2 ...'
         type: string
-      - in: consulta
+      - in: query
         name: fields
         description: Campos devueltos. Por ejemplo, col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: sortby
         description: Campos ordenados por. Por ejemplo, Col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: order
         description: El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...
         type: string
-      - in: consulta
+      - in: query
         name: limit
         description: Limite el tamaño del conjunto de resultados. Debe ser un número entero
         type: string
-      - in: consulta
+      - in: query
         name: offset
         description: Posición inicial del conjunto de resultados. Debe ser un número entero
         type: string
@@ -360,27 +360,27 @@ paths:
       description: consulta todos los registros de la tabla Diagnostico
       operationId: DiagnosticoController.Get All
       parameters:
-      - in: consulta
+      - in: query
         name: query
         description: 'Filtro. Por ejemplo, col1: v1, col2: v2 ...'
         type: string
-      - in: consulta
+      - in: query
         name: fields
         description: Campos devueltos. Por ejemplo, col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: sortby
         description: Campos ordenados por. Por ejemplo, Col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: order
         description: El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...
         type: string
-      - in: consulta
+      - in: query
         name: limit
         description: Limite el tamaño del conjunto de resultados. Debe ser un número entero
         type: string
-      - in: consulta
+      - in: query
         name: offset
         description: Posición inicial del conjunto de resultados. Debe ser un número entero
         type: string
@@ -474,27 +474,27 @@ paths:
       description: consulta todos los registros de la tabla Limites
       operationId: LimitesController.Get All
       parameters:
-      - in: consulta
+      - in: query
         name: query
         description: 'Filtro. Por ejemplo, col1: v1, col2: v2 ...'
         type: string
-      - in: consulta
+      - in: query
         name: fields
         description: Campos devueltos. Por ejemplo, col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: sortby
         description: Campos ordenados por. Por ejemplo, Col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: order
         description: El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...
         type: string
-      - in: consulta
+      - in: query
         name: limit
         description: Limite el tamaño del conjunto de resultados. Debe ser un número entero
         type: string
-      - in: consulta
+      - in: query
         name: offset
         description: Posición inicial del conjunto de resultados. Debe ser un número entero
         type: string
@@ -588,30 +588,36 @@ paths:
       description: consulta todos los registros de la tabla TipoAntecedente
       operationId: TipoAntecedenteController.Get All
       parameters:
-      - in: consulta
+      - in: string
         name: query
         description: 'Filtro. Por ejemplo, col1: v1, col2: v2 ...'
-        type: string
-      - in: consulta
+        schema:
+          $ref: '#/definitions/false'
+      - in: string
         name: fields
         description: Campos devueltos. Por ejemplo, col1, col2 ...
-        type: string
-      - in: consulta
+        schema:
+          $ref: '#/definitions/false'
+      - in: string
         name: sortby
         description: Campos ordenados por. Por ejemplo, Col1, col2 ...
-        type: string
-      - in: consulta
+        schema:
+          $ref: '#/definitions/false'
+      - in: string
         name: order
         description: El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...
-        type: string
-      - in: consulta
+        schema:
+          $ref: '#/definitions/false'
+      - in: string
         name: limit
         description: Limite el tamaño del conjunto de resultados. Debe ser un número entero
-        type: string
-      - in: consulta
+        schema:
+          $ref: '#/definitions/false'
+      - in: string
         name: offset
         description: Posición inicial del conjunto de resultados. Debe ser un número entero
-        type: string
+        schema:
+          $ref: '#/definitions/false'
       responses:
         "200":
           description: ""
@@ -696,6 +702,9 @@ paths:
         "403":
           description: Id vacío
 definitions:
+  "false":
+    title: "false"
+    type: object
   models.Antecedente:
     title: Antecedente
     type: object
