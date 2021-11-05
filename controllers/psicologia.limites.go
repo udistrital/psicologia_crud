@@ -138,7 +138,7 @@ func (c *LimitesController) GetAll() {
 func (c *LimitesController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.Limites{IdLimite: id}
+	v := models.Limites{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateLimites(&v); err == nil {
 			c.Data["json"] = "OK"

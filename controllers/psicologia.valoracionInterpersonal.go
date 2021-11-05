@@ -138,7 +138,7 @@ func (c *ValoracionInterpersonalController) GetAll() {
 func (c *ValoracionInterpersonalController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.ValoracionInterpersonal{IdValoracionInterpersonal: id}
+	v := models.ValoracionInterpersonal{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateValoracionInterpersonal(&v); err == nil {
 			c.Data["json"] = "OK"

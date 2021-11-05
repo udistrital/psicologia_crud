@@ -10,12 +10,13 @@ import (
 )
 
 type Diagnostico struct {
-	IdDiagnostico  int    `orm:"column(id_diagnostico_psicologia);pk;auto"`
-	IdHojaHistoria int    `orm:"column(id_hoja_historia);null"`
-	Hipotesis      string `orm:"column(hipotesis);null"`
-	Acuerdo        string `orm:"column(acuerdo);null"`
-	Observaciones  string `orm:"column(observaciones);null"`
-	Evolucion      string `orm:"column(evolucion);type(json);null"`
+	Id                int    `orm:"column(id_diagnostico_psicologia);pk;auto"`
+	HojaHistoriaId    int    `orm:"column(id_hoja_historia);null"`
+	HistoriaClinicaId int    `orm:"column(id_historia_clinica);null"`
+	Hipotesis         string `orm:"column(hipotesis);null"`
+	Acuerdo           string `orm:"column(acuerdo);null"`
+	Observaciones     string `orm:"column(observaciones);null"`
+	Evolucion         string `orm:"column(evolucion);type(json);null"`
 }
 
 func (p *Diagnostico) TableName() string {
@@ -37,7 +38,7 @@ func AddDiagnostico(m *Diagnostico) (id int64, err error) {
 // Id no existe
 func GetDiagnosticoById(id int) (v *Diagnostico, err error) {
 	o := orm.NewOrm()
-	v = &Diagnostico{IdDiagnostico: id}
+	v = &Diagnostico{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
@@ -119,7 +120,7 @@ func GetAllDiagnostico(query map[string]string, fields []string, sortby []string
 // El registro a actualizar no existe
 func UpdateDiagnostico(m *Diagnostico) (err error) {
 	o := orm.NewOrm()
-	v := Diagnostico{IdDiagnostico: m.IdDiagnostico}
+	v := Diagnostico{Id: m.Id}
 	if err = o.Read(&v); err == nil {
 		var num int64
 		if num, err = o.Update(m); err == nil {
@@ -133,10 +134,10 @@ func UpdateDiagnostico(m *Diagnostico) (err error) {
 // El registro a eliminar no existe
 func DeleteDiagnostico(id int) (err error) {
 	o := orm.NewOrm()
-	v := Diagnostico{IdDiagnostico: id}
+	v := Diagnostico{Id: id}
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&Diagnostico{IdDiagnostico: id}); err == nil {
+		if num, err = o.Delete(&Diagnostico{Id: id}); err == nil {
 			fmt.Println("Numero de registros eliminados:", num)
 		}
 	}

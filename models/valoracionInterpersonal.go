@@ -10,19 +10,20 @@ import (
 )
 
 type ValoracionInterpersonal struct {
-	IdValoracionInterpersonal int    `orm:"column(id_valoracion_interpersonal);pk;auto"`
-	IdHojaHistoria            int    `orm:"column(id_hoja_historia);null"`
-	Autoridad                 string `orm:"column(autoridad);null"`
-	Pares                     string `orm:"column(pares);null"`
-	Pareja                    string `orm:"column(pareja);null"`
-	Relaciones                bool   `orm:"column(relaciones);null"`
-	Satisfaccion              string `orm:"column(satisfaccion);null"`
-	Proteccion                string `orm:"column(proteccion);null"`
-	Orientacion               string `orm:"column(orientacion);null"`
-	Judiciales                string `orm:"column(judiciales);null"`
-	Economicos                string `orm:"column(economicos);null"`
-	Drogas                    string `orm:"column(drogas);null"`
-	Motivo                    string `orm:"column(motivo);null"`
+	Id                int    `orm:"column(id_valoracion_interpersonal);pk;auto"`
+	HistoriaClinicaId int    `orm:"column(id_historia_clinica);null"`
+	HojaHistoriaId    int    `orm:"column(id_hoja_historia);null"`
+	Autoridad         string `orm:"column(autoridad);null"`
+	Pares             string `orm:"column(pares);null"`
+	Pareja            string `orm:"column(pareja);null"`
+	Relaciones        bool   `orm:"column(relaciones);null"`
+	Satisfaccion      string `orm:"column(satisfaccion);null"`
+	Proteccion        string `orm:"column(proteccion);null"`
+	Orientacion       string `orm:"column(orientacion);null"`
+	Judiciales        string `orm:"column(judiciales);null"`
+	Economicos        string `orm:"column(economicos);null"`
+	Drogas            string `orm:"column(drogas);null"`
+	Motivo            string `orm:"column(motivo);null"`
 }
 
 func (t *ValoracionInterpersonal) TableName() string {
@@ -44,7 +45,7 @@ func AddValoracionInterpersonal(m *ValoracionInterpersonal) (id int64, err error
 // Id no existe
 func GetValoracionInterpersonalById(id int) (v *ValoracionInterpersonal, err error) {
 	o := orm.NewOrm()
-	v = &ValoracionInterpersonal{IdValoracionInterpersonal: id}
+	v = &ValoracionInterpersonal{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
@@ -126,7 +127,7 @@ func GetAllValoracionInterpersonal(query map[string]string, fields []string, sor
 // El registro a actualizar no existe
 func UpdateValoracionInterpersonal(m *ValoracionInterpersonal) (err error) {
 	o := orm.NewOrm()
-	v := ValoracionInterpersonal{IdValoracionInterpersonal: m.IdValoracionInterpersonal}
+	v := ValoracionInterpersonal{Id: m.Id}
 	if err = o.Read(&v); err == nil {
 		var num int64
 		if num, err = o.Update(m); err == nil {
@@ -140,10 +141,10 @@ func UpdateValoracionInterpersonal(m *ValoracionInterpersonal) (err error) {
 // El registro a eliminar no existe
 func DeleteValoracionInterpersonal(id int) (err error) {
 	o := orm.NewOrm()
-	v := ValoracionInterpersonal{IdValoracionInterpersonal: id}
+	v := ValoracionInterpersonal{Id: id}
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&ValoracionInterpersonal{IdValoracionInterpersonal: id}); err == nil {
+		if num, err = o.Delete(&ValoracionInterpersonal{Id: id}); err == nil {
 			fmt.Println("Número de registros eliminados de la base de datos:", num)
 		}
 	}

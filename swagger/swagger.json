@@ -1075,23 +1075,22 @@
             "title": "Antecedente",
             "type": "object",
             "properties": {
-                "Actual_somatico": {
+                "ActualSomatico": {
                     "type": "string"
                 },
-                "IdAntecedente": {
+                "HistoriaClinicaId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdHistoriaClinica": {
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdTipoAntecedentePsicologico": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "Pasado_somatico": {
+                "PasadoSomatico": {
                     "type": "string"
+                },
+                "TipoAntecedente": {
+                    "$ref": "#/definitions/models.TipoAntecedente"
                 }
             }
         },
@@ -1102,11 +1101,18 @@
                 "Afrontamiento": {
                     "type": "string"
                 },
-                "IdComportamientoConsulta": {
+                "Comportamiento": {
+                    "type": "string"
+                },
+                "HistoriaClinicaId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdHojaHistoria": {
+                "HojaHistoriaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -1119,11 +1125,15 @@
             "title": "ComposicionFamiliar",
             "type": "object",
             "properties": {
-                "IdComposicionFamiliar": {
+                "HistoriaClinicaId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdHojaHistoria": {
+                "HojaHistoriaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -1145,11 +1155,15 @@
                 "Hipotesis": {
                     "type": "string"
                 },
-                "IdDiagnostico": {
+                "HistoriaClinicaId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdHojaHistoria": {
+                "HojaHistoriaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -1168,11 +1182,15 @@
                 "Difusos": {
                     "type": "string"
                 },
-                "IdHojaHistoria": {
+                "HistoriaClinicaId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdLimite": {
+                "HojaHistoriaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -1199,7 +1217,7 @@
                     "type": "string",
                     "format": "datetime"
                 },
-                "IdTipoAntecedentePsicologico": {
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -1221,11 +1239,15 @@
                 "Economicos": {
                     "type": "string"
                 },
-                "IdHojaHistoria": {
+                "HistoriaClinicaId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdValoracionInterpersonal": {
+                "HojaHistoriaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },

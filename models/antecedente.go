@@ -10,11 +10,11 @@ import (
 )
 
 type Antecedente struct {
-	IdAntecedente                int    `orm:"column(id_antecedente);pk"`
-	IdTipoAntecedentePsicologico int    `orm:"column(id_tipo_antecedente_psicologico);null"`
-	IdHistoriaClinica            int    `orm:"column(id_historia_clinica);null"`
-	Actual_somatico              string `orm:"column(actual_somatico);null"`
-	Pasado_somatico              string `orm:"column(pasado_somatico);null"`
+	Id                int              `orm:"column(id_antecedente);pk"`
+	TipoAntecedente   *TipoAntecedente `orm:"column(id_tipo_antecedente_psicologico);rel(fk)"`
+	HistoriaClinicaId int              `orm:"column(id_historia_clinica);null"`
+	ActualSomatico    string           `orm:"column(actual_somatico);null"`
+	PasadoSomatico    string           `orm:"column(pasado_somatico);null"`
 }
 
 func (t *Antecedente) TableName() string {
@@ -36,7 +36,7 @@ func AddAntecedente(m *Antecedente) (id int64, err error) {
 // Id no existe
 func GetAntecedenteById(id int) (v *Antecedente, err error) {
 	o := orm.NewOrm()
-	v = &Antecedente{IdAntecedente: id}
+	v = &Antecedente{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
@@ -118,7 +118,7 @@ func GetAllAntecedente(query map[string]string, fields []string, sortby []string
 // El registro a actualizar no existe
 func UpdatePsicologiaAntecedente(m *Antecedente) (err error) {
 	o := orm.NewOrm()
-	v := Antecedente{IdAntecedente: m.IdAntecedente}
+	v := Antecedente{Id: m.Id}
 	if err = o.Read(&v); err == nil {
 		var num int64
 		if num, err = o.Update(m); err == nil {
@@ -132,10 +132,10 @@ func UpdatePsicologiaAntecedente(m *Antecedente) (err error) {
 // El registro a eliminar no existe
 func DeleteAntecedente(id int) (err error) {
 	o := orm.NewOrm()
-	v := Antecedente{IdAntecedente: id}
+	v := Antecedente{Id: id}
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&Antecedente{IdAntecedente: id}); err == nil {
+		if num, err = o.Delete(&Antecedente{Id: id}); err == nil {
 			fmt.Println("Número de registros eliminados en la base de datos:", num)
 		}
 	}

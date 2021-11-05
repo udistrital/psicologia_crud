@@ -11,12 +11,12 @@ import (
 )
 
 type TipoAntecedente struct {
-	IdTipoAntecedentePsicologico int        `orm:"column(id_tipo_antecedente_psicologico);pk;auto"`
-	Nombre                       string     `orm:"column(nombre);null"`
-	Descripcion                  string     `orm:"column(descripcion);null"`
-	Activo                       bool       `orm:"column(activo);null"`
-	FechaCreacion                *time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);null"`
-	FechaModificacion            *time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);null"`
+	Id                int        `orm:"column(id_tipo_antecedente_psicologico);pk;auto"`
+	FechaCreacion     *time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);null"`
+	FechaModificacion *time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);null"`
+	Nombre            string     `orm:"column(nombre);null"`
+	Descripcion       string     `orm:"column(descripcion);null"`
+	Activo            bool       `orm:"column(activo);null"`
 }
 
 func (p *TipoAntecedente) TableName() string {
@@ -38,7 +38,7 @@ func AddTipoAntecedente(m *TipoAntecedente) (id int64, err error) {
 // Id no existe
 func GetTipoAntecedenteById(id int) (v *TipoAntecedente, err error) {
 	o := orm.NewOrm()
-	v = &TipoAntecedente{IdTipoAntecedentePsicologico: id}
+	v = &TipoAntecedente{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
@@ -120,7 +120,7 @@ func GetAllTipoAntecedente(query map[string]string, fields []string, sortby []st
 // El registro a actualizar no existe
 func UpdateTipoAntecedente(m *TipoAntecedente) (err error) {
 	o := orm.NewOrm()
-	v := TipoAntecedente{IdTipoAntecedentePsicologico: m.IdTipoAntecedentePsicologico}
+	v := TipoAntecedente{Id: m.Id}
 	if err = o.Read(&v); err == nil {
 		var num int64
 		if num, err = o.Update(m); err == nil {
@@ -134,10 +134,10 @@ func UpdateTipoAntecedente(m *TipoAntecedente) (err error) {
 // El registro a eliminar no existe
 func DeleteTipoAntecedente(id int) (err error) {
 	o := orm.NewOrm()
-	v := TipoAntecedente{IdTipoAntecedentePsicologico: id}
+	v := TipoAntecedente{Id: id}
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&TipoAntecedente{IdTipoAntecedentePsicologico: id}); err == nil {
+		if num, err = o.Delete(&TipoAntecedente{Id: id}); err == nil {
 			fmt.Println("Numero de registros eliminados:", num)
 		}
 	}

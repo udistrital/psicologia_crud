@@ -138,7 +138,7 @@ func (c *ComposicionFamiliarController) GetAll() {
 func (c *ComposicionFamiliarController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.ComposicionFamiliar{IdComposicionFamiliar: id}
+	v := models.ComposicionFamiliar{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateComposicionFamiliar(&v); err == nil {
 			c.Data["json"] = "OK"

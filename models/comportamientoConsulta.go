@@ -10,10 +10,12 @@ import (
 )
 
 type ComportamientoConsulta struct {
-	IdComportamientoConsulta int    `orm:"column(id_comportamiento_consulta);pk;auto"`
-	IdHojaHistoria           int    `orm:"column(id_hoja_historia);null"`
-	Problematica             string `orm:"column(problematica);null"`
-	Afrontamiento            string `orm:"column(afrontamiento);null"`
+	Id                int    `orm:"column(id_comportamiento_consulta);pk;auto"`
+	HistoriaClinicaId int    `orm:"column(id_historia_clinica);null"`
+	HojaHistoriaId    int    `orm:"column(id_hoja_historia);null"`
+	Problematica      string `orm:"column(problematica);null"`
+	Afrontamiento     string `orm:"column(afrontamiento);null"`
+	Comportamiento    string `orm:"column(comportamiento);null"`
 }
 
 func (t *ComportamientoConsulta) TableName() string {
@@ -35,7 +37,7 @@ func AddComportamientoConsulta(m *ComportamientoConsulta) (id int64, err error) 
 //Id no existe
 func GetComportamientoConsultaById(id int) (v *ComportamientoConsulta, err error) {
 	o := orm.NewOrm()
-	v = &ComportamientoConsulta{IdComportamientoConsulta: id}
+	v = &ComportamientoConsulta{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
@@ -117,7 +119,7 @@ func GetAllComportamientoConsulta(query map[string]string, fields []string, sort
 // El registro a actualizar no existe
 func UpdateComportamientoConsulta(m *ComportamientoConsulta) (err error) {
 	o := orm.NewOrm()
-	v := ComportamientoConsulta{IdComportamientoConsulta: m.IdComportamientoConsulta}
+	v := ComportamientoConsulta{Id: m.Id}
 	if err = o.Read(&v); err == nil {
 		var num int64
 		if num, err = o.Update(m); err == nil {
@@ -131,10 +133,10 @@ func UpdateComportamientoConsulta(m *ComportamientoConsulta) (err error) {
 // El registro a eliminar no existe
 func DeleteComportamientoConsulta(id int) (err error) {
 	o := orm.NewOrm()
-	v := ComportamientoConsulta{IdComportamientoConsulta: id}
+	v := ComportamientoConsulta{Id: id}
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&ComportamientoConsulta{IdComportamientoConsulta: id}); err == nil {
+		if num, err = o.Delete(&ComportamientoConsulta{Id: id}); err == nil {
 			fmt.Println("Número de registros eliminados en la base de datos:", num)
 		}
 	}
