@@ -51,6 +51,11 @@ func init() {
 				&controllers.TipoAntecedenteController{},
 			),
 		),
+		beego.NSNamespace("/ValoracionInterpersonal",
+			beego.NSInclude(
+				&controllers.ValoracionInterpersonalController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }
