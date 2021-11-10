@@ -11,7 +11,7 @@ import (
 
 type Limites struct {
 	Id                int    `orm:"column(id_limite);pk;auto"`
-	HistoriaClinicaId int    `orm:"column(id_historia_clinica)"`
+	HistoriaClinicaId int    `orm:"column(id_historia_clinica);null"`
 	HojaHistoriaId    int    `orm:"column(id_hoja_historia);null"`
 	Difusos           string `orm:"column(difusos);null"`
 	Claros            string `orm:"column(claros);null"`

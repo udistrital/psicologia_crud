@@ -11,7 +11,7 @@ import (
 
 type ComposicionFamiliar struct {
 	Id                int    `orm:"column(id_composicion_familiar);pk;auto"`
-	HistoriaClinicaId int    `orm:"column(id_historia_clinica)"`
+	HistoriaClinicaId int    `orm:"column(id_historia_clinica);null"`
 	HojaHistoriaId    int    `orm:"column(id_hoja_historia);null"`
 	Observaciones     string `orm:"column(observaciones);null"`
 }

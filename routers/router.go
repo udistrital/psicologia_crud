@@ -41,16 +41,6 @@ func init() {
 				&controllers.LimitesController{},
 			),
 		),
-		beego.NSNamespace("/TipoAntecedente",
-			beego.NSInclude(
-				&controllers.TipoAntecedenteController{},
-			),
-		),
-		beego.NSNamespace("/TipoAntecedente",
-			beego.NSInclude(
-				&controllers.TipoAntecedenteController{},
-			),
-		),
 		beego.NSNamespace("/ValoracionInterpersonal",
 			beego.NSInclude(
 				&controllers.ValoracionInterpersonalController{},

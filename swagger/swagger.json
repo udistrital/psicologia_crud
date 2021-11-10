@@ -880,191 +880,6 @@
                 }
             }
         },
-        "/TipoAntecedente/": {
-            "get": {
-                "tags": [
-                    "TipoAntecedente"
-                ],
-                "description": "consulta todos los registros de la tabla TipoAntecedente",
-                "operationId": "TipoAntecedenteController.Get All",
-                "parameters": [
-                    {
-                        "in": "string",
-                        "name": "query",
-                        "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
-                        "schema": {
-                            "$ref": "#/definitions/false"
-                        }
-                    },
-                    {
-                        "in": "string",
-                        "name": "fields",
-                        "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
-                        "schema": {
-                            "$ref": "#/definitions/false"
-                        }
-                    },
-                    {
-                        "in": "string",
-                        "name": "sortby",
-                        "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
-                        "schema": {
-                            "$ref": "#/definitions/false"
-                        }
-                    },
-                    {
-                        "in": "string",
-                        "name": "order",
-                        "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
-                        "schema": {
-                            "$ref": "#/definitions/false"
-                        }
-                    },
-                    {
-                        "in": "string",
-                        "name": "limit",
-                        "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
-                        "schema": {
-                            "$ref": "#/definitions/false"
-                        }
-                    },
-                    {
-                        "in": "string",
-                        "name": "offset",
-                        "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
-                        "schema": {
-                            "$ref": "#/definitions/false"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoAntecedente"
-                        }
-                    },
-                    "403": {
-                        "description": ""
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "TipoAntecedente"
-                ],
-                "description": "agregar un registro en la tabla TipoAntecedente",
-                "operationId": "TipoAntecedenteController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "Cuerpo para el contenido de TipoAntecedente",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoAntecedente"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.TipoAntecedente"
-                    },
-                    "403": {
-                        "description": "Cuerpo Vacío"
-                    }
-                }
-            }
-        },
-        "/TipoAntecedente/{id}": {
-            "get": {
-                "tags": [
-                    "TipoAntecedente"
-                ],
-                "description": "consultar un registro de la tabla TipoAntecedente por su id",
-                "operationId": "TipoAntecedenteController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "Id a consultar",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoAntecedente"
-                        }
-                    },
-                    "403": {
-                        "description": ":id está vacío"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "TipoAntecedente"
-                ],
-                "description": "actualizar un registro de la tabla TipoAntecedente",
-                "operationId": "TipoAntecedenteController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "Id del registro a actualizar",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "Cuerpo para el contenido de TipoAntecedente",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoAntecedente"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoAntecedente"
-                        }
-                    },
-                    "403": {
-                        "description": ":id no es entero"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "TipoAntecedente"
-                ],
-                "description": "elimina un registro de la tabla TipoAntecedente",
-                "operationId": "TipoAntecedenteController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "Id del registro a eliminar",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} borrado exitoso!"
-                    },
-                    "403": {
-                        "description": "Id vacío"
-                    }
-                }
-            }
-        },
         "/ValoracionInterpersonal/": {
             "get": {
                 "tags": [
@@ -1240,15 +1055,14 @@
         }
     },
     "definitions": {
-        "false": {
-            "title": "false",
-            "type": "object"
-        },
         "models.Antecedente": {
             "title": "Antecedente",
             "type": "object",
             "properties": {
-                "ActualSomatico": {
+                "ActualFamiliar": {
+                    "type": "string"
+                },
+                "ActualPersonal": {
                     "type": "string"
                 },
                 "HistoriaClinicaId": {
@@ -1259,11 +1073,11 @@
                     "type": "integer",
                     "format": "int64"
                 },
-                "PasadoSomatico": {
+                "PasadoFamiliar": {
                     "type": "string"
                 },
-                "TipoAntecedente": {
-                    "$ref": "#/definitions/models.TipoAntecedente"
+                "PasadoPersonal": {
+                    "type": "string"
                 }
             }
         },
@@ -1368,33 +1182,6 @@
                     "format": "int64"
                 },
                 "Rigidos": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.TipoAntecedente": {
-            "title": "TipoAntecedente",
-            "type": "object",
-            "properties": {
-                "Activo": {
-                    "type": "boolean"
-                },
-                "Descripcion": {
-                    "type": "string"
-                },
-                "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "Id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "Nombre": {
                     "type": "string"
                 }
             }
