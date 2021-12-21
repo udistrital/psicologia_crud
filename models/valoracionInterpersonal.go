@@ -23,7 +23,6 @@ type ValoracionInterpersonal struct {
 	Judiciales        string `orm:"column(judiciales);null"`
 	Economicos        string `orm:"column(economicos);null"`
 	Drogas            string `orm:"column(drogas);null"`
-	Motivo            string `orm:"column(motivo);null"`
 }
 
 func (t *ValoracionInterpersonal) TableName() string {
