@@ -15,6 +15,8 @@ type Diagnostico struct {
 	HistoriaClinicaId int    `orm:"column(id_historia_clinica);null"`
 	Hipotesis         string `orm:"column(hipotesis);null"`
 	Acuerdo           string `orm:"column(acuerdo);null"`
+	Diagnostico       string `orm:"column(diagnostico);null"`
+	Medicamento    	  string `orm:"column(medicamento);null"`
 }
 
 func (p *Diagnostico) TableName() string {
