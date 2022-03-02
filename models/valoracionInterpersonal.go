@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -23,6 +24,9 @@ type ValoracionInterpersonal struct {
 	Judiciales        string `orm:"column(judiciales);null"`
 	Economicos        string `orm:"column(economicos);null"`
 	Drogas            string `orm:"column(drogas);null"`
+	FechaCreacion     *time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);null"`
+	FechaModificacion *time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);null"`
+	Activo            bool       `orm:"column(activo);null"`
 }
 
 func (t *ValoracionInterpersonal) TableName() string {

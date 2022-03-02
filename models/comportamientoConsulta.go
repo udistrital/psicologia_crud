@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -16,6 +17,9 @@ type ComportamientoConsulta struct {
 	Problematica      string `orm:"column(problematica);null"`
 	Afrontamiento     string `orm:"column(afrontamiento);null"`
 	Comportamiento    string `orm:"column(comportamiento);null"`
+	FechaCreacion     *time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);null"`
+	FechaModificacion *time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);null"`
+	Activo            bool       `orm:"column(activo);null"`
 }
 
 func (t *ComportamientoConsulta) TableName() string {

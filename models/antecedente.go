@@ -5,17 +5,21 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type Antecedente struct {
-	Id                int    `orm:"column(id_antecedente);pk"`
+	Id                int    `orm:"column(id_antecedente);pk;auto"`
 	HistoriaClinicaId int    `orm:"column(id_historia_clinica);null"`
 	ActualPersonal    string `orm:"column(actual_personal);null"`
 	PasadoPersonal    string `orm:"column(pasado_personal);null"`
 	ActualFamiliar    string `orm:"column(actual_familiar);null"`
 	PasadoFamiliar    string `orm:"column(pasado_familiar);null"`
+	FechaCreacion     *time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);null"`
+	FechaModificacion *time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);null"`
+	Activo            bool       `orm:"column(activo);null"`
 }
 
 func (t *Antecedente) TableName() string {
