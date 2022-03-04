@@ -9,7 +9,7 @@ info:
   license:
     name: BSD-3-Clause
     url: http://opensource.org/licenses/BSD-3-Clause
-basePath: /v1
+basePath: /Psicologia
 paths:
   /Antecedente/:
     get:
@@ -18,27 +18,27 @@ paths:
       description: consulta todos los registros de la tabla Antecedente
       operationId: AntecedenteController.Get All
       parameters:
-      - in: consulta
+      - in: query
         name: query
         description: 'Filtro. Por ejemplo, col1: v1, col2: v2 ...'
         type: string
-      - in: consulta
+      - in: query
         name: fields
         description: Campos devueltos. Por ejemplo, col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: sortby
         description: Campos ordenados por. Por ejemplo, Col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: order
         description: El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...
         type: string
-      - in: consulta
+      - in: query
         name: limit
         description: Limite el tamaño del conjunto de resultados. Debe ser un número entero
         type: string
-      - in: consulta
+      - in: query
         name: offset
         description: Posición inicial del conjunto de resultados. Debe ser un número entero
         type: string
@@ -132,27 +132,27 @@ paths:
       description: consulta todos los registros de la tabla ComportamientoConsulta
       operationId: ComportamientoConsultaController.Get All
       parameters:
-      - in: consulta
+      - in: query
         name: query
         description: 'Filtro. Por ejemplo, col1: v1, col2: v2 ...'
         type: string
-      - in: consulta
+      - in: query
         name: fields
         description: Campos devueltos. Por ejemplo, col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: sortby
         description: Campos ordenados por. Por ejemplo, Col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: order
         description: El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...
         type: string
-      - in: consulta
+      - in: query
         name: limit
         description: Limite el tamaño del conjunto de resultados. Debe ser un número entero
         type: string
-      - in: consulta
+      - in: query
         name: offset
         description: Posición inicial del conjunto de resultados. Debe ser un número entero
         type: string
@@ -246,27 +246,27 @@ paths:
       description: consulta todos los registros de la tabla ComposicionFamiliar
       operationId: ComposicionFamiliarController.Get All
       parameters:
-      - in: consulta
+      - in: query
         name: query
         description: 'Filtro. Por ejemplo, col1: v1, col2: v2 ...'
         type: string
-      - in: consulta
+      - in: query
         name: fields
         description: Campos devueltos. Por ejemplo, col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: sortby
         description: Campos ordenados por. Por ejemplo, Col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: order
         description: El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...
         type: string
-      - in: consulta
+      - in: query
         name: limit
         description: Limite el tamaño del conjunto de resultados. Debe ser un número entero
         type: string
-      - in: consulta
+      - in: query
         name: offset
         description: Posición inicial del conjunto de resultados. Debe ser un número entero
         type: string
@@ -360,27 +360,27 @@ paths:
       description: consulta todos los registros de la tabla Diagnostico
       operationId: DiagnosticoController.Get All
       parameters:
-      - in: consulta
+      - in: query
         name: query
         description: 'Filtro. Por ejemplo, col1: v1, col2: v2 ...'
         type: string
-      - in: consulta
+      - in: query
         name: fields
         description: Campos devueltos. Por ejemplo, col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: sortby
         description: Campos ordenados por. Por ejemplo, Col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: order
         description: El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...
         type: string
-      - in: consulta
+      - in: query
         name: limit
         description: Limite el tamaño del conjunto de resultados. Debe ser un número entero
         type: string
-      - in: consulta
+      - in: query
         name: offset
         description: Posición inicial del conjunto de resultados. Debe ser un número entero
         type: string
@@ -474,27 +474,27 @@ paths:
       description: consulta todos los registros de la tabla Limites
       operationId: LimitesController.Get All
       parameters:
-      - in: consulta
+      - in: query
         name: query
         description: 'Filtro. Por ejemplo, col1: v1, col2: v2 ...'
         type: string
-      - in: consulta
+      - in: query
         name: fields
         description: Campos devueltos. Por ejemplo, col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: sortby
         description: Campos ordenados por. Por ejemplo, Col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: order
         description: El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...
         type: string
-      - in: consulta
+      - in: query
         name: limit
         description: Limite el tamaño del conjunto de resultados. Debe ser un número entero
         type: string
-      - in: consulta
+      - in: query
         name: offset
         description: Posición inicial del conjunto de resultados. Debe ser un número entero
         type: string
@@ -581,34 +581,34 @@ paths:
           description: '{string} borrado exitoso!'
         "403":
           description: Id vacío
-  /TipoAntecedente/:
+  /ValoracionInterpersonal/:
     get:
       tags:
-      - TipoAntecedente
-      description: consulta todos los registros de la tabla TipoAntecedente
-      operationId: TipoAntecedenteController.Get All
+      - ValoracionInterpersonal
+      description: consulta todos los registros de la tabla ValoracionInterpersonal
+      operationId: ValoracionInterpersonalController.Get All
       parameters:
-      - in: consulta
+      - in: query
         name: query
         description: 'Filtro. Por ejemplo, col1: v1, col2: v2 ...'
         type: string
-      - in: consulta
+      - in: query
         name: fields
         description: Campos devueltos. Por ejemplo, col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: sortby
         description: Campos ordenados por. Por ejemplo, Col1, col2 ...
         type: string
-      - in: consulta
+      - in: query
         name: order
         description: El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...
         type: string
-      - in: consulta
+      - in: query
         name: limit
         description: Limite el tamaño del conjunto de resultados. Debe ser un número entero
         type: string
-      - in: consulta
+      - in: query
         name: offset
         description: Posición inicial del conjunto de resultados. Debe ser un número entero
         type: string
@@ -616,32 +616,32 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.TipoAntecedente'
+            $ref: '#/definitions/models.ValoracionInterpersonal'
         "403":
           description: ""
     post:
       tags:
-      - TipoAntecedente
-      description: agregar un registro en la tabla TipoAntecedente
-      operationId: TipoAntecedenteController.Post
+      - ValoracionInterpersonal
+      description: agregar un registro en la tabla ValoracionInterpersonal
+      operationId: ValoracionInterpersonalController.Post
       parameters:
       - in: body
         name: body
-        description: Cuerpo para el contenido de TipoAntecedente
+        description: Cuerpo para el contenido de ValoracionInterpersonal
         required: true
         schema:
-          $ref: '#/definitions/models.TipoAntecedente'
+          $ref: '#/definitions/models.ValoracionInterpersonal'
       responses:
         "201":
-          description: '{int} models.TipoAntecedente'
+          description: '{int} models.ValoracionInterpersonal'
         "403":
           description: Cuerpo Vacío
-  /TipoAntecedente/{id}:
+  /ValoracionInterpersonal/{id}:
     get:
       tags:
-      - TipoAntecedente
-      description: consultar un registro de la tabla TipoAntecedente por su id
-      operationId: TipoAntecedenteController.Get One
+      - ValoracionInterpersonal
+      description: consultar un registro de la tabla ValoracionInterpersonal por su id
+      operationId: ValoracionInterpersonalController.Get One
       parameters:
       - in: path
         name: id
@@ -652,14 +652,14 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.TipoAntecedente'
+            $ref: '#/definitions/models.ValoracionInterpersonal'
         "403":
           description: :id está vacío
     put:
       tags:
-      - TipoAntecedente
-      description: actualizar un registro de la tabla TipoAntecedente
-      operationId: TipoAntecedenteController.Put
+      - ValoracionInterpersonal
+      description: actualizar un registro de la tabla ValoracionInterpersonal
+      operationId: ValoracionInterpersonalController.Put
       parameters:
       - in: path
         name: id
@@ -668,22 +668,22 @@ paths:
         type: string
       - in: body
         name: body
-        description: Cuerpo para el contenido de TipoAntecedente
+        description: Cuerpo para el contenido de ValoracionInterpersonal
         required: true
         schema:
-          $ref: '#/definitions/models.TipoAntecedente'
+          $ref: '#/definitions/models.ValoracionInterpersonal'
       responses:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.TipoAntecedente'
+            $ref: '#/definitions/models.ValoracionInterpersonal'
         "403":
           description: :id no es entero
     delete:
       tags:
-      - TipoAntecedente
-      description: elimina un registro de la tabla TipoAntecedente
-      operationId: TipoAntecedenteController.Delete
+      - ValoracionInterpersonal
+      description: elimina un registro de la tabla ValoracionInterpersonal
+      operationId: ValoracionInterpersonalController.Delete
       parameters:
       - in: path
         name: id
@@ -700,18 +700,19 @@ definitions:
     title: Antecedente
     type: object
     properties:
-      Actual_somatico:
+      ActualFamiliar:
         type: string
-      IdAntecedente:
+      ActualPersonal:
+        type: string
+      HistoriaClinicaId:
         type: integer
         format: int64
-      IdHistoriaClinica:
+      Id:
         type: integer
         format: int64
-      IdTipoAntecedentePsicologico:
-        type: integer
-        format: int64
-      Pasado_somatico:
+      PasadoFamiliar:
+        type: string
+      PasadoPersonal:
         type: string
   models.ComportamientoConsulta:
     title: ComportamientoConsulta
@@ -719,10 +720,15 @@ definitions:
     properties:
       Afrontamiento:
         type: string
-      IdComportamientoConsulta:
+      Comportamiento:
+        type: string
+      HistoriaClinicaId:
         type: integer
         format: int64
-      IdHojaHistoria:
+      HojaHistoriaId:
+        type: integer
+        format: int64
+      Id:
         type: integer
         format: int64
       Problematica:
@@ -731,10 +737,13 @@ definitions:
     title: ComposicionFamiliar
     type: object
     properties:
-      IdComposicionFamiliar:
+      HistoriaClinicaId:
         type: integer
         format: int64
-      IdHojaHistoria:
+      HojaHistoriaId:
+        type: integer
+        format: int64
+      Id:
         type: integer
         format: int64
       Observaciones:
@@ -749,10 +758,13 @@ definitions:
         type: string
       Hipotesis:
         type: string
-      IdDiagnostico:
+      HistoriaClinicaId:
         type: integer
         format: int64
-      IdHojaHistoria:
+      HojaHistoriaId:
+        type: integer
+        format: int64
+      Id:
         type: integer
         format: int64
       Observaciones:
@@ -765,32 +777,16 @@ definitions:
         type: string
       Difusos:
         type: string
-      IdHojaHistoria:
+      HistoriaClinicaId:
         type: integer
         format: int64
-      IdLimite:
+      HojaHistoriaId:
+        type: integer
+        format: int64
+      Id:
         type: integer
         format: int64
       Rigidos:
-        type: string
-  models.TipoAntecedente:
-    title: TipoAntecedente
-    type: object
-    properties:
-      Activo:
-        type: boolean
-      Descripcion:
-        type: string
-      FechaCreacion:
-        type: string
-        format: datetime
-      FechaModificacion:
-        type: string
-        format: datetime
-      IdTipoAntecedentePsicologico:
-        type: integer
-        format: int64
-      Nombre:
         type: string
   models.ValoracionInterpersonal:
     title: ValoracionInterpersonal
@@ -802,10 +798,13 @@ definitions:
         type: string
       Economicos:
         type: string
-      IdHojaHistoria:
+      HistoriaClinicaId:
         type: integer
         format: int64
-      IdValoracionInterpersonal:
+      HojaHistoriaId:
+        type: integer
+        format: int64
+      Id:
         type: integer
         format: int64
       Judiciales:

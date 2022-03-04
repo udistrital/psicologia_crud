@@ -5,14 +5,19 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type ComposicionFamiliar struct {
-	IdComposicionFamiliar int    `orm:"column(id_composicion_familiar);pk;auto"`
-	IdHojaHistoria        int    `orm:"column(id_hoja_historia);null"`
-	Observaciones         string `orm:"column(observaciones);null"`
+	Id                int    `orm:"column(id_composicion_familiar);pk;auto"`
+	HistoriaClinicaId int    `orm:"column(id_historia_clinica);null"`
+	HojaHistoriaId    int    `orm:"column(id_hoja_historia);null"`
+	Observaciones     string `orm:"column(observaciones);null"`
+	FechaCreacion     *time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);null"`
+	FechaModificacion *time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);null"`
+	Activo            bool       `orm:"column(activo);null"`
 }
 
 func (t *ComposicionFamiliar) TableName() string {
@@ -34,7 +39,7 @@ func AddComposicionFamiliar(m *ComposicionFamiliar) (id int64, err error) {
 // Id no existe
 func GetComposicionFamiliarById(id int) (v *ComposicionFamiliar, err error) {
 	o := orm.NewOrm()
-	v = &ComposicionFamiliar{IdComposicionFamiliar: id}
+	v = &ComposicionFamiliar{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
@@ -116,7 +121,7 @@ func GetAllComposicionFamiliar(query map[string]string, fields []string, sortby 
 // El registro a actualizar no existe
 func UpdateComposicionFamiliar(m *ComposicionFamiliar) (err error) {
 	o := orm.NewOrm()
-	v := ComposicionFamiliar{IdComposicionFamiliar: m.IdComposicionFamiliar}
+	v := ComposicionFamiliar{Id: m.Id}
 	if err = o.Read(&v); err == nil {
 		var num int64
 		if num, err = o.Update(m); err == nil {
@@ -130,10 +135,10 @@ func UpdateComposicionFamiliar(m *ComposicionFamiliar) (err error) {
 // El registro a eliminar no existe
 func DeleteComposicionFamiliar(id int) (err error) {
 	o := orm.NewOrm()
-	v := ComposicionFamiliar{IdComposicionFamiliar: id}
+	v := ComposicionFamiliar{Id: id}
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&ComposicionFamiliar{IdComposicionFamiliar: id}); err == nil {
+		if num, err = o.Delete(&ComposicionFamiliar{Id: id}); err == nil {
 			fmt.Println("Número de registros eliminados en la base de datos:", num)
 		}
 	}

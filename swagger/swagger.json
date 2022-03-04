@@ -13,7 +13,7 @@
             "url": "http://opensource.org/licenses/BSD-3-Clause"
         }
     },
-    "basePath": "/v1",
+    "basePath": "/Psicologia",
     "paths": {
         "/Antecedente/": {
             "get": {
@@ -24,37 +24,37 @@
                 "operationId": "AntecedenteController.Get All",
                 "parameters": [
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "query",
                         "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "fields",
                         "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "sortby",
                         "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "order",
                         "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "limit",
                         "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "offset",
                         "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
                         "type": "string"
@@ -197,37 +197,37 @@
                 "operationId": "ComportamientoConsultaController.Get All",
                 "parameters": [
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "query",
                         "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "fields",
                         "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "sortby",
                         "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "order",
                         "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "limit",
                         "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "offset",
                         "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
                         "type": "string"
@@ -370,37 +370,37 @@
                 "operationId": "ComposicionFamiliarController.Get All",
                 "parameters": [
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "query",
                         "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "fields",
                         "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "sortby",
                         "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "order",
                         "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "limit",
                         "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "offset",
                         "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
                         "type": "string"
@@ -543,37 +543,37 @@
                 "operationId": "DiagnosticoController.Get All",
                 "parameters": [
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "query",
                         "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "fields",
                         "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "sortby",
                         "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "order",
                         "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "limit",
                         "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "offset",
                         "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
                         "type": "string"
@@ -716,37 +716,37 @@
                 "operationId": "LimitesController.Get All",
                 "parameters": [
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "query",
                         "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "fields",
                         "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "sortby",
                         "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "order",
                         "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "limit",
                         "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "offset",
                         "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
                         "type": "string"
@@ -880,46 +880,46 @@
                 }
             }
         },
-        "/TipoAntecedente/": {
+        "/ValoracionInterpersonal/": {
             "get": {
                 "tags": [
-                    "TipoAntecedente"
+                    "ValoracionInterpersonal"
                 ],
-                "description": "consulta todos los registros de la tabla TipoAntecedente",
-                "operationId": "TipoAntecedenteController.Get All",
+                "description": "consulta todos los registros de la tabla ValoracionInterpersonal",
+                "operationId": "ValoracionInterpersonalController.Get All",
                 "parameters": [
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "query",
                         "description": "Filtro. Por ejemplo, col1: v1, col2: v2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "fields",
                         "description": "Campos devueltos. Por ejemplo, col1, col2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "sortby",
                         "description": "Campos ordenados por. Por ejemplo, Col1, col2 ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "order",
                         "description": "El orden correspondiente a cada campo de clasificación, si es un valor único, se aplica a todos los campos de clasificación. Por ejemplo, desc, asc ...",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "limit",
                         "description": "Limite el tamaño del conjunto de resultados. Debe ser un número entero",
                         "type": "string"
                     },
                     {
-                        "in": "consulta",
+                        "in": "query",
                         "name": "offset",
                         "description": "Posición inicial del conjunto de resultados. Debe ser un número entero",
                         "type": "string"
@@ -929,7 +929,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.TipoAntecedente"
+                            "$ref": "#/definitions/models.ValoracionInterpersonal"
                         }
                     },
                     "403": {
@@ -939,24 +939,24 @@
             },
             "post": {
                 "tags": [
-                    "TipoAntecedente"
+                    "ValoracionInterpersonal"
                 ],
-                "description": "agregar un registro en la tabla TipoAntecedente",
-                "operationId": "TipoAntecedenteController.Post",
+                "description": "agregar un registro en la tabla ValoracionInterpersonal",
+                "operationId": "ValoracionInterpersonalController.Post",
                 "parameters": [
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "Cuerpo para el contenido de TipoAntecedente",
+                        "description": "Cuerpo para el contenido de ValoracionInterpersonal",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.TipoAntecedente"
+                            "$ref": "#/definitions/models.ValoracionInterpersonal"
                         }
                     }
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.TipoAntecedente"
+                        "description": "{int} models.ValoracionInterpersonal"
                     },
                     "403": {
                         "description": "Cuerpo Vacío"
@@ -964,13 +964,13 @@
                 }
             }
         },
-        "/TipoAntecedente/{id}": {
+        "/ValoracionInterpersonal/{id}": {
             "get": {
                 "tags": [
-                    "TipoAntecedente"
+                    "ValoracionInterpersonal"
                 ],
-                "description": "consultar un registro de la tabla TipoAntecedente por su id",
-                "operationId": "TipoAntecedenteController.Get One",
+                "description": "consultar un registro de la tabla ValoracionInterpersonal por su id",
+                "operationId": "ValoracionInterpersonalController.Get One",
                 "parameters": [
                     {
                         "in": "path",
@@ -984,7 +984,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.TipoAntecedente"
+                            "$ref": "#/definitions/models.ValoracionInterpersonal"
                         }
                     },
                     "403": {
@@ -994,10 +994,10 @@
             },
             "put": {
                 "tags": [
-                    "TipoAntecedente"
+                    "ValoracionInterpersonal"
                 ],
-                "description": "actualizar un registro de la tabla TipoAntecedente",
-                "operationId": "TipoAntecedenteController.Put",
+                "description": "actualizar un registro de la tabla ValoracionInterpersonal",
+                "operationId": "ValoracionInterpersonalController.Put",
                 "parameters": [
                     {
                         "in": "path",
@@ -1009,10 +1009,10 @@
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "Cuerpo para el contenido de TipoAntecedente",
+                        "description": "Cuerpo para el contenido de ValoracionInterpersonal",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.TipoAntecedente"
+                            "$ref": "#/definitions/models.ValoracionInterpersonal"
                         }
                     }
                 ],
@@ -1020,7 +1020,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.TipoAntecedente"
+                            "$ref": "#/definitions/models.ValoracionInterpersonal"
                         }
                     },
                     "403": {
@@ -1030,10 +1030,10 @@
             },
             "delete": {
                 "tags": [
-                    "TipoAntecedente"
+                    "ValoracionInterpersonal"
                 ],
-                "description": "elimina un registro de la tabla TipoAntecedente",
-                "operationId": "TipoAntecedenteController.Delete",
+                "description": "elimina un registro de la tabla ValoracionInterpersonal",
+                "operationId": "ValoracionInterpersonalController.Delete",
                 "parameters": [
                     {
                         "in": "path",
@@ -1059,22 +1059,24 @@
             "title": "Antecedente",
             "type": "object",
             "properties": {
-                "Actual_somatico": {
+                "ActualFamiliar": {
                     "type": "string"
                 },
-                "IdAntecedente": {
+                "ActualPersonal": {
+                    "type": "string"
+                },
+                "HistoriaClinicaId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdHistoriaClinica": {
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdTipoAntecedentePsicologico": {
-                    "type": "integer",
-                    "format": "int64"
+                "PasadoFamiliar": {
+                    "type": "string"
                 },
-                "Pasado_somatico": {
+                "PasadoPersonal": {
                     "type": "string"
                 }
             }
@@ -1086,11 +1088,18 @@
                 "Afrontamiento": {
                     "type": "string"
                 },
-                "IdComportamientoConsulta": {
+                "Comportamiento": {
+                    "type": "string"
+                },
+                "HistoriaClinicaId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdHojaHistoria": {
+                "HojaHistoriaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -1103,11 +1112,15 @@
             "title": "ComposicionFamiliar",
             "type": "object",
             "properties": {
-                "IdComposicionFamiliar": {
+                "HistoriaClinicaId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdHojaHistoria": {
+                "HojaHistoriaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -1129,11 +1142,15 @@
                 "Hipotesis": {
                     "type": "string"
                 },
-                "IdDiagnostico": {
+                "HistoriaClinicaId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdHojaHistoria": {
+                "HojaHistoriaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -1152,42 +1169,19 @@
                 "Difusos": {
                     "type": "string"
                 },
-                "IdHojaHistoria": {
+                "HistoriaClinicaId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdLimite": {
+                "HojaHistoriaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
                 "Rigidos": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.TipoAntecedente": {
-            "title": "TipoAntecedente",
-            "type": "object",
-            "properties": {
-                "Activo": {
-                    "type": "boolean"
-                },
-                "Descripcion": {
-                    "type": "string"
-                },
-                "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "IdTipoAntecedentePsicologico": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "Nombre": {
                     "type": "string"
                 }
             }
@@ -1205,11 +1199,15 @@
                 "Economicos": {
                     "type": "string"
                 },
-                "IdHojaHistoria": {
+                "HistoriaClinicaId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdValoracionInterpersonal": {
+                "HojaHistoriaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },

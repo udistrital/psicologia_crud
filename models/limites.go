@@ -5,16 +5,21 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type Limites struct {
-	IdLimite       int    `orm:"column(id_limite);pk;auto"`
-	Difusos        string `orm:"column(difusos);null"`
-	Claros         string `orm:"column(claros);null"`
-	Rigidos        string `orm:"column(rigidos);null"`
-	IdHojaHistoria int    `orm:"column(id_hoja_historia);null"`
+	Id                int    `orm:"column(id_limite);pk;auto"`
+	HistoriaClinicaId int    `orm:"column(id_historia_clinica);null"`
+	HojaHistoriaId    int    `orm:"column(id_hoja_historia);null"`
+	Difusos           string `orm:"column(difusos);null"`
+	Claros            string `orm:"column(claros);null"`
+	Rigidos           string `orm:"column(rigidos);null"`
+	FechaCreacion     *time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);null"`
+	FechaModificacion *time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);null"`
+	Activo            bool       `orm:"column(activo);null"`
 }
 
 func (p *Limites) TableName() string {
@@ -36,7 +41,7 @@ func AddLimites(m *Limites) (id int64, err error) {
 // Id no existe
 func GetLimitesById(id int) (v *Limites, err error) {
 	o := orm.NewOrm()
-	v = &Limites{IdLimite: id}
+	v = &Limites{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
@@ -118,7 +123,7 @@ func GetAllLimites(query map[string]string, fields []string, sortby []string, or
 // El registro a actualizar no existe
 func UpdateLimites(m *Limites) (err error) {
 	o := orm.NewOrm()
-	v := Limites{IdLimite: m.IdLimite}
+	v := Limites{Id: m.Id}
 	if err = o.Read(&v); err == nil {
 		var num int64
 		if num, err = o.Update(m); err == nil {
@@ -132,10 +137,10 @@ func UpdateLimites(m *Limites) (err error) {
 // El registro a eliminar no existe
 func DeleteLimites(id int) (err error) {
 	o := orm.NewOrm()
-	v := Limites{IdLimite: id}
+	v := Limites{Id: id}
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&Limites{IdLimite: id}); err == nil {
+		if num, err = o.Delete(&Limites{Id: id}); err == nil {
 			fmt.Println("Numero de registros eliminados:", num)
 		}
 	}
