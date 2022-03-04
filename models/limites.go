@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -16,6 +17,9 @@ type Limites struct {
 	Difusos           string `orm:"column(difusos);null"`
 	Claros            string `orm:"column(claros);null"`
 	Rigidos           string `orm:"column(rigidos);null"`
+	FechaCreacion     *time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);null"`
+	FechaModificacion *time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);null"`
+	Activo            bool       `orm:"column(activo);null"`
 }
 
 func (p *Limites) TableName() string {
